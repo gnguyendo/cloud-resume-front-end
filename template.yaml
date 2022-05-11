@@ -18,7 +18,7 @@ Resources:
       AccessControl: PublicRead
       BucketName: gnguyendo-cloud-resume-website
       MetricsConfigurations:
-        - Id: EntireBucket
+          Id: EntireBucket
         WebsiteConfiguration:
           IndexDocument: index.html
           ErrorDocument: error.html
