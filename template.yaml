@@ -20,25 +20,26 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
-      Bucket: gnguyendo-cloud-resume-website
-      PolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          - Action:
-              - 's3:GetObject'
-            Effect: Allow
-            Resource: !Join
-              - ''
-              - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
-                - !Ref gnguyendo-cloud-resume-website
-                - /*
-            Principal: '*'
-            Condition:
-              StringLike:
-                'aws:Referer':
-                  - 'http://www.example.com/*'
-                  - 'http://example.net/*'
-
+  AWS::S3::BucketPolicy:
+    Type: AWS::S3::BucketPolicy #policy document begins here
+    Bucket: gnguyendo-cloud-resume-website
+    PolicyDocument:
+      Version: 2012-10-17
+      Statement:
+        - Action:
+            - 's3:GetObject'
+          Effect: Allow
+          Resource: !Join
+            - ''
+            - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
+              - !Ref gnguyendo-cloud-resume-website
+              - /*
+          Principal: '*'
+          Condition:
+            StringLike:
+              'aws:Referer':
+                - 'http://www.example.com/*'
+                - 'http://example.net/*'
 
 Outputs:
   WebsiteURL:
