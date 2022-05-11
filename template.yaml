@@ -11,6 +11,7 @@ Globals:
     Timeout: 3
 
 Resources:
+
   S3Bucket:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
@@ -20,6 +21,7 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
