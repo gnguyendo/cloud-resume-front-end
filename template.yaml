@@ -22,15 +22,16 @@ Resources:
         ErrorDocument: error.html
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
-    Bucket: gnguyendo-cloud-resume-website
-    PolicyDocument:
-      Version: 2012-10-17
-      Statement:
-        - Action:
-            - 's3:GetObject'
-          Effect: Allow
-          Resource: !Join
-            - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
+    Properties:
+      Bucket: gnguyendo-cloud-resume-website
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource: !Join
+              - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
 
 
 Outputs:
