@@ -20,6 +20,7 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+      Bucket: gnguyendo-cloud-resume-website
       PolicyDocument:
         Version: 2012-10-17
         Statement:
@@ -29,7 +30,7 @@ Resources:
             Resource: !Join
               - ''
               - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
-                - !Ref DOC-EXAMPLE-BUCKET
+                - !Ref gnguyendo-cloud-resume-website
                 - /*
             Principal: '*'
             Condition:
