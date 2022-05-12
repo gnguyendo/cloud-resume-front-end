@@ -36,6 +36,8 @@ Resources:
                 - !Ref S3Bucket
                 - /*
             Principal: '*'
+  CustomResource:
+
 
 Outputs:
   WebsiteURL:
