@@ -31,10 +31,10 @@ Resources:
               - 's3:GetObject'
             Effect: Allow
             Resource: !Join
-              - ''
+#              - ''
               - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
-                - !Ref S3Bucket
-                - /*
+#                - !Ref S3Bucket
+#                - /*
             Principal: '*'
 
 Outputs:
