@@ -22,31 +22,31 @@ Resources:
         IndexDocument: index.html
         ErrorDocument: error.html
 
-  BucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket: !Ref gnguyendo-cloud-resume-website
-      PolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          - Action:
-              - 's3:GetObject'
-            Effect: Allow
-            Resource: !Join
-              - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
-            Principal: '*'
+#  BucketPolicy:
+#    Type: AWS::S3::BucketPolicy
+#    Properties:
+#      Bucket: !Ref gnguyendo-cloud-resume-website
+#      PolicyDocument:
+#        Version: 2012-10-17
+#        Statement:
+#          - Action:
+#              - 's3:GetObject'
+#            Effect: Allow
+#            Resource: !Join
+#              - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
+#            Principal: '*'
 
-#Outputs:
-#  WebsiteURL:
-#    Value: !GetAtt
-#      - S3Bucket
-#      - WebsiteURL
-#    Description: URL for website hosted on S3
-#  S3BucketSecureURL:
-#    Value: !Join
-#      - ''
-#      - - 'https://'
-#        - !GetAtt
-#          - S3Bucket
-#          - DomainName
-#    Description: Name of S3 bucket to hold website content
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt
+      - S3Bucket
+      - WebsiteURL
+    Description: URL for website hosted on S3
+  S3BucketSecureURL:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - S3Bucket
+          - DomainName
+    Description: Name of S3 bucket to hold website content
