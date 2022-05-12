@@ -24,7 +24,7 @@ Resources:
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref gnguyendo-cloud-resume-website
+      Bucket: !Ref S3Bucket
       PolicyDocument:
         Version: 2012-10-17
         Statement:
@@ -34,7 +34,7 @@ Resources:
             Resource: !Join
               - ''
               - - 'arn:aws:s3:::gnguyendo-cloud-resume-website'
-                - !Ref gnguyendo-cloud-resume-website
+                - !Ref S3Bucket
                 - /*
             Principal: '*'
 
