@@ -23,7 +23,7 @@ jobs:
   sync-s3-bucket:
     runs-on: ubuntu-latest
     steps:
-      run:
+      - run:
         # echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
         echo ""::aws s3 sync /home/geoffrey/cloud-resume-project/cloud-resume-front-end/public s3://gnguyendo-cloud-resume-website"
 
