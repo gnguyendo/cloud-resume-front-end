@@ -21,7 +21,7 @@ jobs:
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-front-end --s3-bucket gnguyendo-cloud-resume-front-end-template --capabilities CAPABILITY_IAM --region us-east-1
 
   sync-s3-bucket:
-#    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 #    steps:
 #      - uses: actions/checkout@v3
 #      - uses: actions/checkout@main
