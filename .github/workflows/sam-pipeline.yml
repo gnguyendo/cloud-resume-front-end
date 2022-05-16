@@ -21,12 +21,13 @@ jobs:
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-front-end --s3-bucket gnguyendo-cloud-resume-front-end-template --capabilities CAPABILITY_IAM --region us-east-1
 
   sync-s3-bucket:
-    runs-on: ubuntu-latest
-    steps:
+#    runs-on: ubuntu-latest
+#    steps:
 #      - uses: actions/checkout@v3
 #      - uses: actions/checkout@main
 #      - with:
 #          args: --acl public-read --follow-symlinks --delete
-    name: Sync S3 Bucket
-      run: aws s3 sync ./public s3://gnguyendo-cloud-resume-website
-      shell: bash
+    steps:
+      - name: Sync S3 Bucket
+        run: aws s3 sync ./cloud-resume-front-end/public s3://gnguyendo-cloud-resume-website
+        shell: bash
