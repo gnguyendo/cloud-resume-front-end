@@ -16,8 +16,14 @@ jobs:
           aws-region: us-east-1
       # sam build
       - run: sam build --use-container
-
-# Run Unit tests- Specify unit tests here
-
+# Run Unit tests-Specify unit tests here
 # sam deploy
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-front-end --s3-bucket gnguyendo-cloud-resume-front-end-template --capabilities CAPABILITY_IAM --region us-east-1
+
+  sync-s3-bucket:
+    runs-on: ubuntu-latest
+    steps:
+      run:
+        # echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+        echo ""::aws s3 sync /home/geoffrey/cloud-resume-project/cloud-resume-front-end/public s3://gnguyendo-cloud-resume-website"
+
