@@ -36,7 +36,11 @@ Resources:
                 - !Ref S3Bucket
                 - /*
             Principal: '*'
-
+  MyCertificate:
+    Type: "AWS::CertificateManager::Certificate"
+    Properties:
+      DomainName: geoffreynguyen-do.com
+      ValidationMethod: DNS
 
 Outputs:
   WebsiteURL:
