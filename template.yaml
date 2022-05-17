@@ -20,6 +20,7 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -36,24 +37,46 @@ Resources:
                 - !Ref S3Bucket
                 - /*
             Principal: '*'
-  CloudFrontDistribution:
-    Type: AWS::CloudFront::Distribution
-    Properties:
-      DistributionConfig:
-        CacheBehaviors:
-          ViewerProtocolPolicy: redirect-to-https
-        Origins:
-          - CustomOriginConfig:
-#              HTTPPort: Integer
-#              HTTPSPort: Integer
-              OriginProtocolPolicy: match-viewer
-#              OriginSSLProtocols:
-#                - String
-#  MyCertificate:
-#    Type: "AWS::CertificateManager::Certificate"
+
+#  CloudFrontDistribution:
+#    Type: AWS::CloudFront::Distribution
 #    Properties:
-#      DomainName: geoffreynguyen-do.com
-#      ValidationMethod: DNS
+#      DistributionConfig:
+#        DefaultCacheBehavior:
+#          ViewerProtocolPolicy: redirect-to-https
+#          TargetOriginId: #insert something here
+#          CachePolicyId:
+#        Enabled: Yes
+#        IPV6Enabled: True
+#        Origins:
+#          DomainName: http://gnguyendo-cloud-resume-website.s3-website-us-east-1.amazonaws.com
+#          Id: gnguyendo-website # A unique identifier for the origin. This value must be unique within the distribution.
+#          CustomOriginConfig:
+#            OriginProtocolPolicy: match-viewer
+#
+#  ClountFrontCachePolicy:
+#    Type: AWS::CloudFront::CachePolicy
+#    Properties:
+#      CachePolicyConfig:
+#        DefaultTTL: "0"
+#        MaxTTL: "0"
+#        MinTTL: "0"
+#        Name: "geoffrey-cloud-resume-cloudfront-policy"
+#        ParametersInCacheKeyAndForwardedToOrigin:
+#          CookiesConfig:
+#            CookieBehavior: none
+#          EnableAcceptEncodingBrotli: Boolean
+#          EnableAcceptEncodingGzip: Boolean
+#          HeadersConfig:
+#            HeadersConfig
+#          QueryStringsConfig:
+#            QueryStringsConfig
+
+
+
+
+
+
 
 Outputs:
   WebsiteURL:
