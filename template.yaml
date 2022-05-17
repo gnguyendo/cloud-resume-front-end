@@ -43,7 +43,7 @@ Resources:
     Properties:
       DistributionConfig:
         DefaultCacheBehavior:
-          CachePolicyId: !Ref CachePolicyConfig
+          CachePolicyId: !Ref CloudFrontCachePolicy
           TargetOriginId: gnguyendo-website
           ViewerProtocolPolicy: redirect-to-https
         Enabled: Yes
