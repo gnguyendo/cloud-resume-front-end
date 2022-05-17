@@ -36,6 +36,19 @@ Resources:
                 - !Ref S3Bucket
                 - /*
             Principal: '*'
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        CacheBehaviors:
+          ViewerProtocolPolicy: redirect-to-https
+        Origins:
+          - CustomOriginConfig:
+#              HTTPPort: Integer
+#              HTTPSPort: Integer
+              OriginProtocolPolicy: match-viewer
+#              OriginSSLProtocols:
+#                - String
 #  MyCertificate:
 #    Type: "AWS::CertificateManager::Certificate"
 #    Properties:
