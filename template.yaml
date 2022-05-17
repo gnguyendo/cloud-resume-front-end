@@ -44,14 +44,14 @@ Resources:
       DistributionConfig:
         DefaultCacheBehavior:
           CachePolicyId: !Ref CloudFrontCachePolicy
-          TargetOriginId: #insert something here
+          TargetOriginId: gnguyendo-website
           ViewerProtocolPolicy: redirect-to-https
         Enabled: Yes
         Origins:
-          DomainName: http://gnguyendo-cloud-resume-website.s3-website-us-east-1.amazonaws.com
-          Id: gnguyendo-website # A unique identifier for the origin. This value must be unique within the distribution.
-          CustomOriginConfig:
-            OriginProtocolPolicy: match-viewer
+          - DomainName: http://gnguyendo-cloud-resume-website.s3-website-us-east-1.amazonaws.com
+            Id: gnguyendo-website # A unique identifier for the origin. This value must be unique within the distribution.
+            CustomOriginConfig:
+              OriginProtocolPolicy: match-viewer
 
   CloudFrontCachePolicy:
     Type: AWS::CloudFront::CachePolicy
