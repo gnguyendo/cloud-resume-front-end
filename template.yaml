@@ -48,7 +48,7 @@ Resources:
           ViewerProtocolPolicy: redirect-to-https
         Enabled: 'true'
         Origins:
-        - DomainName: http://gnguyendo-cloud-resume-website.s3-website-us-east-1.amazonaws.com
+        - DomainName: "http://gnguyendo-cloud-resume-website.s3-website-us-east-1.amazonaws.com"
           Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
           CustomOriginConfig:
             OriginProtocolPolicy: match-viewer
@@ -85,3 +85,4 @@ Outputs:
           - S3Bucket
           - DomainName
     Description: Name of S3 bucket to hold website content
+
