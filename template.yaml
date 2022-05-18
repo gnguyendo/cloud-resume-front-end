@@ -50,7 +50,7 @@ Resources:
         Origins:
         - DomainName: !Join
           - ''
-          - 'http://'
+          - - 'http://'
             - !Ref S3Bucket
             - '.s3-website-us-east-1.amazonaws.com'
           Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
