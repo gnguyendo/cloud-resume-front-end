@@ -55,6 +55,9 @@ Resources:
           Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
           CustomOriginConfig:
             OriginProtocolPolicy: match-viewer
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: True
+
 
   CloudFrontCachePolicy:
     Type: AWS::CloudFront::CachePolicy
