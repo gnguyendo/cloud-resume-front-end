@@ -48,10 +48,10 @@ Resources:
           ViewerProtocolPolicy: redirect-to-https
         Enabled: 'true'
         Origins:
-          - DomainName: https://gnguyendo-cloud-resume-website.s3-website-us-east-1.amazonaws.com
-            Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
-            CustomOriginConfig:
-              OriginProtocolPolicy: match-viewer
+        - DomainName: http://gnguyendo-cloud-resume-website.s3-website-us-east-1.amazonaws.com
+          Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
+          CustomOriginConfig:
+            OriginProtocolPolicy: match-viewer
 
   CloudFrontCachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -64,7 +64,6 @@ Resources:
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
             CookieBehavior: none
-#          EnableAcceptEncodingBrotli: Boolean #may need for later
           EnableAcceptEncodingGzip: True
           HeadersConfig:
             HeaderBehavior: none #Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are: non | whitelist
