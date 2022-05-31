@@ -65,10 +65,10 @@ Resources:
               OriginSSLProtocols:
                 - TLSv1.2
             DomainName: !Join
-              - ''
-              - - !Ref S3Bucket
-                - '.s3-website-us-east-1.amazonaws.com'
-              Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
+            - ''
+            - - !Ref S3Bucket
+              - '.s3-website-us-east-1.amazonaws.com'
+            Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
           CloudFrontDefaultCertificate: True
 
