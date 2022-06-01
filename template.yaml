@@ -96,14 +96,13 @@ Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
-      CertificateTransparencyLoggingPreference: String
-      DomainName: www.geoffreynguyendo-resume.com
+#      CertificateTransparencyLoggingPreference: String
+      DomainName: geoffreynguyendo-resume.com
       DomainValidationOptions:
         - DomainName: www.geoffreynguyendo-resume.com
           HostedZoneId: !GetAtt
             - Route53DNSRecord
             - HostedZoneId
-
       ValidationMethod: DNS
 
   Route53HostedZone:
