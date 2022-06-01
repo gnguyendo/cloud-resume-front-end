@@ -101,7 +101,7 @@ Resources:
       DomainValidationOptions:
         - DomainName: www.geoffreynguyendo-resume.com
           HostedZoneId: !GetAtt
-            - Route53DNSRecord
+            - Route53DNSRecordSetGroup
             - HostedZoneId
       ValidationMethod: DNS
 
@@ -114,10 +114,10 @@ Resources:
       VPCs:
         - VPC
 
-  Route53DNSRecord:
+  Route53DNSRecordSetGroup:
     Type: 'AWS::Route53::RecordSetGroup'
     Properties:
-      HostedZoneId: !Ref Route53HostedZone
+      HostedZoneId: !Ref Route53DNSRecordSetGroup
       RecordSets:
         - Name: !Ref Route53HostedZone
           Type: A
@@ -126,7 +126,6 @@ Resources:
             DNSName: !GetAtt
               - CloudFrontDistribution
               - DomainName
-
 
 Outputs:
   WebsiteURL:
