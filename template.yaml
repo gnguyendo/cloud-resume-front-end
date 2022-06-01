@@ -42,6 +42,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
+#        Aliases: www.geoffreyndo.resume.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
@@ -70,9 +71,10 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          CloudFrontDefaultCertificate: True
-
-
+          CloudFrontDefaultCertificate: False
+          AcmCertificateArn:
+          MinimumProtocolVersion: SSLv3
+          SslSupportMethod: sni-only
 
   CloudFrontCachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -90,6 +92,41 @@ Resources:
             HeaderBehavior: none #Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are: non | whitelist
           QueryStringsConfig:
             QueryStringBehavior: all
+
+  ACMCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      CertificateTransparencyLoggingPreference: String
+      DomainName: www.geoffreynguyendo-resume.com
+      DomainValidationOptions:
+        - DomainName: www.geoffreynguyendo-resume.com
+          HostedZoneId: !GetAtt
+            - Route53DNSRecord
+            - HostedZoneId
+
+      ValidationMethod: DNS
+
+  Route53HostedZone:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: geoffreynguyendo-resume.com
+      QueryLoggingConfig:
+        QueryLoggingConfig
+      VPCs:
+        - VPC
+
+  Route53DNSRecord:
+    Type: 'AWS::Route53::RecordSetGroup'
+    Properties:
+      HostedZoneId: !Ref Route53HostedZone
+      RecordSets:
+        - Name: !Ref Route53HostedZone
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2
+            DNSName: !GetAtt
+              - CloudFrontDistribution
+              - DomainName
 
 
 Outputs:
