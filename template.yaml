@@ -113,8 +113,8 @@ Resources:
   Route53RecordSet:
     Type: AWS::Route53::RecordSet
     Properties:
+      HostedZoneId: Z04370213OSM26SKRBEJW
       Name: www.gnguyendo-resume.com
-      TTL: 900
       Type: AAAA
 
   Route53DNSRecordSetGroup:
