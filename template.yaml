@@ -109,7 +109,7 @@ Resources:
   Route53HostedZone:
     Type: AWS::Route53::HostedZone
     Properties:
-      Name: !Ref DomainName
+      Name: geoffreynguyendo-resume.com
 
 #  Route53RecordSet:
 #    Type: AWS::Route53::RecordSet
