@@ -84,11 +84,13 @@ Resources:
         DefaultTTL: 1
         MaxTTL: 1
         MinTTL: 1
-        Name: gnguyendo-cloud-resume-policy
+        Name: gnguyendo-cloudfront-cache-policy
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
-            CookieBehavior: none
-          EnableAcceptEncodingGzip: True
+            CookieBehavior: all
+          EnableAcceptEncodingGzip: False
+          HeadersConfig:
+            HeaderBehavior: none
           QueryStringsConfig:
             QueryStringBehavior: all
 
