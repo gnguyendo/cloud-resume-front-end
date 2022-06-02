@@ -42,7 +42,8 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Aliases: www.geoffreyndo-resume.com
+        Aliases:
+        - geoffreyndo-resume.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
@@ -55,7 +56,7 @@ Resources:
           TargetOriginId: gnguyendoS3origin
           ViewerProtocolPolicy: redirect-to-https
         IPV6Enabled: True
-        Enabled: "True"
+        Enabled: True
         Origins:
           - CustomOriginConfig:
               HTTPPort: 80
@@ -88,8 +89,6 @@ Resources:
           CookiesConfig:
             CookieBehavior: none
           EnableAcceptEncodingGzip: True
-          HeadersConfig:
-            HeaderBehavior: none #Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are: non | whitelist
           QueryStringsConfig:
             QueryStringBehavior: all
 
