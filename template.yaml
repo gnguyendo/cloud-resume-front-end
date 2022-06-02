@@ -76,7 +76,7 @@ Resources:
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
           CloudFrontDefaultCertificate: False
-          AcmCertificateArn: arn:aws:acm:us-east-1:976309919253:certificate/077aca3a-89ea-4a7c-a5fd-5d0de141967e
+          AcmCertificateArn: arn:aws:acm:us-east-1:976309919253:certificate/f45541c8-ad1d-4b7b-9777-f63cb763903f
           MinimumProtocolVersion: SSLv3
           SslSupportMethod: sni-only
 
@@ -100,31 +100,39 @@ Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
-      DomainName: www.geoffreynguyendo-resume.com
+      DomainName: geoffreynguyendo-resume.com
       DomainValidationOptions:
         - DomainName: www.geoffreynguyendo-resume.com
           HostedZoneId: Z04370213OSM26SKRBEJW
       ValidationMethod: DNS
 
-#  Route53HostedZone:
-#    Type: AWS::Route53::HostedZone
+  Route53HostedZone:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: !Ref DomainName
+
+#  Route53RecordSet:
+#    Type: AWS::Route53::RecordSet
 #    Properties:
-#      Name: geoffreynguyendo-resume.com
-#      QueryLoggingConfig:
-#        QueryLoggingConfig
-#
-#  Route53DNSRecordSetGroup:
-#    Type: 'AWS::Route53::RecordSetGroup'
-#    Properties:
-#      HostedZoneId: !Ref Route53DNSRecordSetGroup
-#      RecordSets:
-#        - Name: !Ref Route53HostedZone
-#          Type: A
-#          AliasTarget:
-#            HostedZoneId: Z2FDTNDATAQYW2
-#            DNSName: !GetAtt
-#              - CloudFrontDistribution
-#              - DomainName
+#      HostedZoneId: Z8VLZEXAMPLE
+#      Name: gnguyendo-resume.com
+#      ResourceRecords:
+#        - 192.0.2.99
+#      TTL: 900
+#      Type: A
+
+  Route53DNSRecordSetGroup:
+    Type: 'AWS::Route53::RecordSetGroup'
+    Properties:
+      HostedZoneId: Z04370213OSM26SKRBEJW
+      RecordSets:
+        - Name: !Ref Route53HostedZone
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2
+            DNSName: !GetAtt
+              - CloudFrontDistribution
+              - DomainName
 
 Outputs:
   WebsiteURL:
