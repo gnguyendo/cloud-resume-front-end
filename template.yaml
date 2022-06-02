@@ -77,7 +77,7 @@ Resources:
         ViewerCertificate:
           CloudFrontDefaultCertificate: False
           AcmCertificateArn: arn:aws:acm:us-east-1:976309919253:certificate/f45541c8-ad1d-4b7b-9777-f63cb763903f
-          MinimumProtocolVersion: SSLv3
+          MinimumProtocolVersion: TLSv1
           SslSupportMethod: sni-only
 
   CloudFrontCachePolicy:
