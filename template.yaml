@@ -65,6 +65,9 @@ Resources:
               OriginProtocolPolicy: http-only
               OriginReadTimeout: 30
               OriginSSLProtocols:
+                - SSLv3
+                - TLSv1
+                - TLSv1.1
                 - TLSv1.2
             DomainName: !Join
             - ''
@@ -103,25 +106,25 @@ Resources:
           HostedZoneId: Z2FDTNDATAQYW2
       ValidationMethod: DNS
 
-#  Route53HostedZone:
-#    Type: AWS::Route53::HostedZone
-#    Properties:
-#      Name: geoffreynguyendo-resume.com
-#      QueryLoggingConfig:
-#        QueryLoggingConfig
-#
-#  Route53DNSRecordSetGroup:
-#    Type: 'AWS::Route53::RecordSetGroup'
-#    Properties:
-#      HostedZoneId: !Ref Route53DNSRecordSetGroup
-#      RecordSets:
-#        - Name: !Ref Route53HostedZone
-#          Type: A
-#          AliasTarget:
-#            HostedZoneId: Z2FDTNDATAQYW2
-#            DNSName: !GetAtt
-#              - CloudFrontDistribution
-#              - DomainName
+  Route53HostedZone:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: geoffreynguyendo-resume.com
+      QueryLoggingConfig:
+        QueryLoggingConfig
+
+  Route53DNSRecordSetGroup:
+    Type: 'AWS::Route53::RecordSetGroup'
+    Properties:
+      HostedZoneId: !Ref Route53DNSRecordSetGroup
+      RecordSets:
+        - Name: !Ref Route53HostedZone
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2
+            DNSName: !GetAtt
+              - CloudFrontDistribution
+              - DomainName
 
 Outputs:
   WebsiteURL:
