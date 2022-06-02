@@ -104,14 +104,14 @@ Resources:
 #    Properties:
 #      Name: geoffreynguyendo-resume.com
 #
-  Route53RecordSet:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: Z04370213OSM26SKRBEJW
-      Name: www.gnguyendo-resume.com
-      Type: AAAA
-      ResourceRecords:
-        - 2001:0db8:85a3:0:0:8a2e:0370:7334
+#  Route53RecordSet:
+#    Type: AWS::Route53::RecordSet
+#    Properties:
+#      HostedZoneId: Z04370213OSM26SKRBEJW
+#      Name: www.gnguyendo-resume.com
+#      Type: AAAA
+#      ResourceRecords:
+#        - 2001:0db8:85a3:0:0:8a2e:0370:7334
 
   Route53DNSRecordSetGroup:
     Type: 'AWS::Route53::RecordSetGroup'
