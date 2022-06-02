@@ -76,7 +76,7 @@ Resources:
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
           CloudFrontDefaultCertificate: False
-          AcmCertificateArn: arn:aws:acm:us-east-1:976309919253:certificate/f45541c8-ad1d-4b7b-9777-f63cb763903f
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/f45541c8-ad1d-4b7b-9777-f63cb763903f"
           MinimumProtocolVersion: TLSv1
           SslSupportMethod: sni-only
 
