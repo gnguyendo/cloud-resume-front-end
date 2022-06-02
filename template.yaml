@@ -43,15 +43,9 @@ Resources:
     Properties:
       DistributionConfig:
         Aliases:
-        - geoffreyndo-resume.com
+          - geoffreyndo-resume.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
-          AllowedMethods:
-            - GET
-            - HEAD
-          CachedMethods:
-            - GET
-            - HEAD
           CachePolicyId: !Ref CloudFrontCachePolicy
           TargetOriginId: gnguyendoS3origin
           ViewerProtocolPolicy: redirect-to-https
@@ -83,9 +77,9 @@ Resources:
     Type: AWS::CloudFront::CachePolicy
     Properties:
       CachePolicyConfig:
-        DefaultTTL: 1
-        MaxTTL: 1
-        MinTTL: 1
+        DefaultTTL: 0
+        MaxTTL: 0
+        MinTTL: 0
         Name: gnguyendo-cloudfront-cache-policy
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
@@ -110,13 +104,15 @@ Resources:
 #    Properties:
 #      Name: geoffreynguyendo-resume.com
 #
-#  Route53RecordSet:
-#    Type: AWS::Route53::RecordSet
-#    Properties:
-#      HostedZoneId: Z04370213OSM26SKRBEJW
-#      Name: www.gnguyendo-resume.com
-#      Type: AAAA
-#
+  Route53RecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: Z04370213OSM26SKRBEJW
+      Name: www.gnguyendo-resume.com
+      Type: AAAA
+      ResourceRecords:
+        - 2001:0db8:85a3:0:0:8a2e:0370:7334
+
   Route53DNSRecordSetGroup:
     Type: 'AWS::Route53::RecordSetGroup'
     Properties:
