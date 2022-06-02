@@ -103,28 +103,28 @@ Resources:
       DomainName: www.geoffreynguyendo-resume.com
       DomainValidationOptions:
         - DomainName: www.geoffreynguyendo-resume.com
-          HostedZoneId: Z2FDTNDATAQYW2
+          HostedZoneId: Z04370213OSM26SKRBEJW
       ValidationMethod: DNS
 
-  Route53HostedZone:
-    Type: AWS::Route53::HostedZone
-    Properties:
-      Name: geoffreynguyendo-resume.com
-      QueryLoggingConfig:
-        QueryLoggingConfig
-
-  Route53DNSRecordSetGroup:
-    Type: 'AWS::Route53::RecordSetGroup'
-    Properties:
-      HostedZoneId: !Ref Route53DNSRecordSetGroup
-      RecordSets:
-        - Name: !Ref Route53HostedZone
-          Type: A
-          AliasTarget:
-            HostedZoneId: Z2FDTNDATAQYW2
-            DNSName: !GetAtt
-              - CloudFrontDistribution
-              - DomainName
+#  Route53HostedZone:
+#    Type: AWS::Route53::HostedZone
+#    Properties:
+#      Name: geoffreynguyendo-resume.com
+#      QueryLoggingConfig:
+#        QueryLoggingConfig
+#
+#  Route53DNSRecordSetGroup:
+#    Type: 'AWS::Route53::RecordSetGroup'
+#    Properties:
+#      HostedZoneId: !Ref Route53DNSRecordSetGroup
+#      RecordSets:
+#        - Name: !Ref Route53HostedZone
+#          Type: A
+#          AliasTarget:
+#            HostedZoneId: Z2FDTNDATAQYW2
+#            DNSName: !GetAtt
+#              - CloudFrontDistribution
+#              - DomainName
 
 Outputs:
   WebsiteURL:
