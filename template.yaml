@@ -42,7 +42,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-#        Aliases: www.geoffreyndo.resume.com
+        Aliases: www.geoffreyndo-resume.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
@@ -96,36 +96,31 @@ Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
-#      CertificateTransparencyLoggingPreference: String
-      DomainName: geoffreynguyendo-resume.com
+      DomainName: www.geoffreynguyendo-resume.com
       DomainValidationOptions:
         - DomainName: www.geoffreynguyendo-resume.com
-          HostedZoneId: !GetAtt
-            - Route53DNSRecordSetGroup
-            - HostedZoneId
+          HostedZoneId: ZZZHHHHWWWWAAA
       ValidationMethod: DNS
 
-  Route53HostedZone:
-    Type: AWS::Route53::HostedZone
-    Properties:
-      Name: geoffreynguyendo-resume.com
-      QueryLoggingConfig:
-        QueryLoggingConfig
-      VPCs:
-        - VPC
-
-  Route53DNSRecordSetGroup:
-    Type: 'AWS::Route53::RecordSetGroup'
-    Properties:
-      HostedZoneId: !Ref Route53DNSRecordSetGroup
-      RecordSets:
-        - Name: !Ref Route53HostedZone
-          Type: A
-          AliasTarget:
-            HostedZoneId: Z2FDTNDATAQYW2
-            DNSName: !GetAtt
-              - CloudFrontDistribution
-              - DomainName
+#  Route53HostedZone:
+#    Type: AWS::Route53::HostedZone
+#    Properties:
+#      Name: geoffreynguyendo-resume.com
+#      QueryLoggingConfig:
+#        QueryLoggingConfig
+#
+#  Route53DNSRecordSetGroup:
+#    Type: 'AWS::Route53::RecordSetGroup'
+#    Properties:
+#      HostedZoneId: !Ref Route53DNSRecordSetGroup
+#      RecordSets:
+#        - Name: !Ref Route53HostedZone
+#          Type: A
+#          AliasTarget:
+#            HostedZoneId: Z2FDTNDATAQYW2
+#            DNSName: !GetAtt
+#              - CloudFrontDistribution
+#              - DomainName
 
 Outputs:
   WebsiteURL:
