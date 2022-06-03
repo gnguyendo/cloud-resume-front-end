@@ -79,7 +79,6 @@ Resources:
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
-
   CloudFrontCachePolicy:
     Type: AWS::CloudFront::CachePolicy
     Properties:
