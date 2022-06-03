@@ -100,7 +100,7 @@ Resources:
     Type: AWS::CertificateManager::Certificate
     Properties:
       DomainName: geoffreynguyendo-resume.com
-      CertificateTransparencyLoggingPreference: ENABLED
+#      CertificateTransparencyLoggingPreference: ENABLED
       DomainValidationOptions:
         - DomainName: geoffreynguyendo-resume.com
           HostedZoneId: Z04370213OSM26SKRBEJW
