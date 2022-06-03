@@ -99,10 +99,10 @@ Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
-      DomainName: *.geoffreynguyendo-resume.com
+      DomainName: *geoffreynguyendo-resume.com
       CertificateTransparencyLoggingPreference: ENABLED
       DomainValidationOptions:
-        - DomainName: *.geoffreynguyendo-resume.com
+        - DomainName: *geoffreynguyendo-resume.com
           HostedZoneId: Z04370213OSM26SKRBEJW
       ValidationMethod: DNS
 
