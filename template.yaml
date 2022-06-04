@@ -99,10 +99,10 @@ Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
-      DomainName: !GetAtt CloudFrontDistribution.Aliases
+      DomainName: geoffreynguyendo-resume.com
       CertificateTransparencyLoggingPreference: ENABLED
       DomainValidationOptions:
-        - DomainName: !GetAtt CloudFrontDistribution.Aliases
+        - DomainName: geoffreynguyendo-resume.com
           HostedZoneId: Z04370213OSM26SKRBEJW
       ValidationMethod: DNS
 
@@ -111,7 +111,7 @@ Resources:
     Properties:
       HostedZoneId: Z04370213OSM26SKRBEJW
       RecordSets:
-        - Name: !GetAtt CloudFrontDistribution.Aliases
+        - Name: geoffreynguyendo-resume.com
           Type: A
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
