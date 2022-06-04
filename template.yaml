@@ -100,7 +100,7 @@ Resources:
     Type: AWS::CertificateManager::Certificate
     Properties:
       DomainName: !GetAtt CloudFrontDistribution.Aliases
-#      CertificateTransparencyLoggingPreference: ENABLED
+      CertificateTransparencyLoggingPreference: ENABLED
       DomainValidationOptions:
         - DomainName: !GetAtt CloudFrontDistribution.Aliases
           HostedZoneId: Z04370213OSM26SKRBEJW
