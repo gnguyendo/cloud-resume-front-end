@@ -38,6 +38,7 @@ Resources:
                 - /*
             Principal: '*'
 
+
 #  CloudFrontDistribution:
 #    Type: AWS::CloudFront::Distribution
 #    Properties:
