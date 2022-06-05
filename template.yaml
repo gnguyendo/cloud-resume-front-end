@@ -42,8 +42,8 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-#        Aliases:
-#          - geoffreynguyendo-resume.com
+        Aliases:
+          - geoffreynguyendo-resume.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
