@@ -38,63 +38,63 @@ Resources:
                 - /*
             Principal: '*'
 
-#  CloudFrontDistribution:
-#    Type: AWS::CloudFront::Distribution
-#    Properties:
-#      DistributionConfig:
-#        Aliases:
-#          - geoffreynguyendo-resume.com
-#        DefaultRootObject: index.html
-#        DefaultCacheBehavior:
-#          AllowedMethods:
-#            - GET
-#            - HEAD
-#          CachedMethods:
-#            - GET
-#            - HEAD
-#          CachePolicyId: !Ref CloudFrontCachePolicy
-#          TargetOriginId: gnguyendoS3origin
-#          ViewerProtocolPolicy: redirect-to-https
-#        IPV6Enabled: True
-#        Enabled: True
-#        Origins:
-#          - CustomOriginConfig:
-#              HTTPPort: 80
-#              HTTPSPort: 443
-#              OriginKeepaliveTimeout: 5
-#              OriginProtocolPolicy: http-only
-#              OriginReadTimeout: 30
-#              OriginSSLProtocols:
-#                - SSLv3
-#                - TLSv1
-#                - TLSv1.1
-#                - TLSv1.2
-#            DomainName: !Join
-#            - ''
-#            - - !Ref S3Bucket
-#              - '.s3-website-us-east-1.amazonaws.com'
-#            Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
-#        ViewerCertificate:
-#          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/d01fbe13-4ebc-40e0-90f8-e1ca27634785"
-#          MinimumProtocolVersion: TLSv1.2_2021
-#          SslSupportMethod: sni-only
-#
-#  CloudFrontCachePolicy:
-#    Type: AWS::CloudFront::CachePolicy
-#    Properties:
-#      CachePolicyConfig:
-#        DefaultTTL: 1
-#        MaxTTL: 1
-#        MinTTL: 1
-#        Name: gnguyendo-cloudfront-cache-policy
-#        ParametersInCacheKeyAndForwardedToOrigin:
-#          CookiesConfig:
-#            CookieBehavior: all
-#          EnableAcceptEncodingGzip: False
-#          HeadersConfig:
-#            HeaderBehavior: none
-#          QueryStringsConfig:
-#            QueryStringBehavior: all
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - geoffreynguyendo-resume.com
+        DefaultRootObject: index.html
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          CachePolicyId: !Ref CloudFrontCachePolicy
+          TargetOriginId: gnguyendoS3origin
+          ViewerProtocolPolicy: redirect-to-https
+        IPV6Enabled: True
+        Enabled: True
+        Origins:
+          - CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginKeepaliveTimeout: 5
+              OriginProtocolPolicy: http-only
+              OriginReadTimeout: 30
+              OriginSSLProtocols:
+                - SSLv3
+                - TLSv1
+                - TLSv1.1
+                - TLSv1.2
+            DomainName: !Join
+            - ''
+            - - !Ref S3Bucket
+              - '.s3-website-us-east-1.amazonaws.com'
+            Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
+        ViewerCertificate:
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/d01fbe13-4ebc-40e0-90f8-e1ca27634785"
+          MinimumProtocolVersion: TLSv1.2_2021
+          SslSupportMethod: sni-only
+
+  CloudFrontCachePolicy:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        DefaultTTL: 1
+        MaxTTL: 1
+        MinTTL: 1
+        Name: gnguyendo-cloudfront-cache-policy
+        ParametersInCacheKeyAndForwardedToOrigin:
+          CookiesConfig:
+            CookieBehavior: all
+          EnableAcceptEncodingGzip: False
+          HeadersConfig:
+            HeaderBehavior: none
+          QueryStringsConfig:
+            QueryStringBehavior: all
 #
 #  ACMCertificate:
 #    Type: AWS::CertificateManager::Certificate
