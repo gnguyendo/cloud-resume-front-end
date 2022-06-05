@@ -44,6 +44,7 @@ Resources:
       DistributionConfig:
         Aliases:
           - geoffreynguyendo-resume.com
+          - www.geoffreynguyendo-resume.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
@@ -75,7 +76,7 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/904f1a4c-f648-4ad9-893d-fa6118c462b4"
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/075a6fe2-a288-41dc-8186-9fbf9182bcf4"
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
