@@ -95,7 +95,6 @@ Resources:
             HeaderBehavior: none
           QueryStringsConfig:
             QueryStringBehavior: all
-
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
