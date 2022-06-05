@@ -43,7 +43,7 @@ Resources:
     Properties:
       DistributionConfig:
         Aliases:
-        - geoffreynguyendo-resume.com
+          - geoffreynguyendo-resume.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
@@ -83,9 +83,9 @@ Resources:
     Type: AWS::CloudFront::CachePolicy
     Properties:
       CachePolicyConfig:
-        DefaultTTL: 1
-        MaxTTL: 1
-        MinTTL: 1
+        DefaultTTL: 0
+        MaxTTL: 0
+        MinTTL: 0
         Name: gnguyendo-cloudfront-cache-policy
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
