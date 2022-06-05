@@ -117,7 +117,6 @@ Resources:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CloudFrontDistribution.DomainName
 
-
 Outputs:
   WebsiteURL:
     Value: !GetAtt
