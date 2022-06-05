@@ -83,9 +83,9 @@ Resources:
     Type: AWS::CloudFront::CachePolicy
     Properties:
       CachePolicyConfig:
-        DefaultTTL: 1
-        MaxTTL: 1
-        MinTTL: 1
+        DefaultTTL: 0
+        MaxTTL: 0
+        MinTTL: 0
         Name: gnguyendo-cloudfront-cache-policy
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
@@ -132,5 +132,3 @@ Outputs:
           - S3Bucket
           - DomainName
     Description: Name of S3 bucket to hold website content
-
-
