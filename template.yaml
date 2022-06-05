@@ -76,7 +76,7 @@ Resources:
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
 #          CloudFrontDefaultCertificate: True
-          AcmCertificateArn: arn:aws:acm:us-east-1:976309919253:certificate/d01fbe13-4ebc-40e0-90f8-e1ca27634785
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/d01fbe13-4ebc-40e0-90f8-e1ca27634785"
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
@@ -100,10 +100,10 @@ Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
-      DomainName: www.geoffreynguyendo-resume.com
+      DomainName: geoffreynguyendo-resume.com
 #      CertificateTransparencyLoggingPreference: ENABLED
       DomainValidationOptions:
-        - DomainName: www.geoffreynguyendo-resume.com
+        - DomainName: geoffreynguyendo-resume.com
           HostedZoneId: Z04370213OSM26SKRBEJW
       ValidationMethod: DNS
 
@@ -112,7 +112,7 @@ Resources:
     Properties:
       HostedZoneId: Z04370213OSM26SKRBEJW
       RecordSets:
-        - Name: www.geoffreynguyendo-resume.com
+        - Name: geoffreynguyendo-resume.com
           Type: A
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
