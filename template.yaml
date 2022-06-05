@@ -75,7 +75,7 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/9c38930a-80be-4297-95f3-6a780314ca4a"
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/413e3009-6bd1-47e0-9814-b4f9e9e3d6b9"
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
@@ -117,7 +117,6 @@ Resources:
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CloudFrontDistribution.DomainName
-
 
 Outputs:
   WebsiteURL:
