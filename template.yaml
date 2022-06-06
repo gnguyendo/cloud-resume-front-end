@@ -76,7 +76,7 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/075a6fe2-a288-41dc-8186-9fbf9182bcf4"
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/77f33a6d-7d34-4184-b5fb-0198bcda6928"
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
@@ -117,12 +117,6 @@ Resources:
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CloudFrontDistribution.DomainName
-        - Name: www.geoffreynguyendo-resume.com
-          Type: A
-          AliasTarget:
-            HostedZoneId: Z2FDTNDATAQYW2
-            DNSName: !GetAtt CloudFrontDistribution.DomainName
-
 Outputs:
   WebsiteURL:
     Value: !GetAtt
