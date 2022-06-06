@@ -44,6 +44,7 @@ Resources:
       DistributionConfig:
         Aliases:
           - geoffreynguyendo-resume.com
+          - www.geoffreynguyendo-resume.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
