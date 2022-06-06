@@ -108,7 +108,6 @@ Resources:
           HostedZoneId: Z04370213OSM26SKRBEJW
       ValidationMethod: DNS
 
-
   Route53DNSRecordSetGroup:
     Type: 'AWS::Route53::RecordSetGroup'
     Properties:
