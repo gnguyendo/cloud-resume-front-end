@@ -63,7 +63,7 @@ Resources:
               HTTPPort: 80
               HTTPSPort: 443
               OriginKeepaliveTimeout: 5
-              OriginProtocolPolicy: https-only
+              OriginProtocolPolicy: match-viewer
               OriginReadTimeout: 15
               OriginSSLProtocols:
                 - SSLv3
@@ -124,14 +124,17 @@ Resources:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CloudFrontDistribution.DomainName
 
-#  PrintLambdaFunction:
-#    Type: AWS::Lambda::Function
-#    Properties:
-#      Code:
-#        Code
-#      FunctionName:
-#      Handler:
-#      Role: arn:aws:iam::976309919253:user/geoffrey
+  PrintLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        ZipFile: |
+          def my_handler(event, context):
+            message = 'Hello Lambda World!'
+            return message
+      FunctionName:
+      Handler: index.handler
+      Role: arn:aws:iam::976309919253:user/geoffrey
 
 
 
