@@ -92,7 +92,7 @@ Resources:
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
             CookieBehavior: all
-          EnableAcceptEncodingGzip: False
+          EnableAcceptEncodingGzip: True
           HeadersConfig:
             HeaderBehavior: none
           QueryStringsConfig:
@@ -102,7 +102,7 @@ Resources:
     Type: AWS::CertificateManager::Certificate
     Properties:
       DomainName: geoffreynguyendo-resume.com
-      CertificateTransparencyLoggingPreference: DISABLED
+      CertificateTransparencyLoggingPreference: ENABLED
       DomainValidationOptions:
         - DomainName: geoffreynguyendo-resume.com
           HostedZoneId: Z04370213OSM26SKRBEJW
@@ -123,6 +123,15 @@ Resources:
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CloudFrontDistribution.DomainName
+
+#  Lambda:
+#    Type: AWS::Lambda::Function
+#    Properties:
+#      Code:
+#        Code
+#      Role:
+#
+
 
 Outputs:
   WebsiteURL:
