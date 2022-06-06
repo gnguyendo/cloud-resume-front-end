@@ -124,19 +124,29 @@ Resources:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CloudFrontDistribution.DomainName
 
-  PrintLambdaFunction:
+  TempLambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
       Code:
         ZipFile: |
           def my_handler(event, context):
-            message = 'Hello Lambda World!'
+            message = "Hello Lambda World!"
             return message
-      FunctionName:
+      FunctionName: TestLambdaFn
       Handler: index.handler
-      Role: arn:aws:iam::976309919253:user/geoffrey
+      Role: !GetAtt TempLambdaRole.Arn
 
-
+  TempLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: TestLambdaRole
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
 
 Outputs:
   WebsiteURL:
