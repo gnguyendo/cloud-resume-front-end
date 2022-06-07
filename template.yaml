@@ -129,7 +129,7 @@ Resources:
     Properties:
       Code:
         S3Bucket: gnguyendo-cloud-resume-front-end-template
-        S3Key: main.py
+        S3Key: app.py
       FunctionName: TestLambdaFn
       Handler: main.test_lambda
       Role: !GetAtt TempLambdaRole.Arn
