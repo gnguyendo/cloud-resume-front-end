@@ -133,7 +133,7 @@ Resources:
             message = "Hello Lambda World!"
             return message
       FunctionName: TestLambdaFn
-      Handler: test_lambda.handler
+      Handler: index.test_lambda
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
 
