@@ -32,7 +32,7 @@ jobs:
           AWS_DEFAULT_REGION: 'us-east-1'
 
   upload_lambda_function:
-    runs-on:
+    runs-on: ubuntu-latest
     steps:
       - name: Upload to S3
         uses: actions/checkout@v3
