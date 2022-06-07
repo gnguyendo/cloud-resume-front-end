@@ -135,6 +135,7 @@ Resources:
       FunctionName: TestLambdaFn
       Handler: index.handler
       Role: !GetAtt TempLambdaRole.Arn
+      Runtime: python3.8
 
   TempLambdaRole:
     Type: AWS::IAM::Role
