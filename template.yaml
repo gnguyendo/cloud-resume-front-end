@@ -129,11 +129,11 @@ Resources:
     Properties:
       Code:
         ZipFile: |
-          def my_handler(event, context):
+          def test_lambda(event, context):
             message = "Hello Lambda World!"
             return message
       FunctionName: TestLambdaFn
-      Handler: index.handler
+      Handler: test_lambda.handler
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
 
