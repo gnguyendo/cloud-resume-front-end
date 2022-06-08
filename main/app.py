@@ -12,7 +12,7 @@ print('Loading function')
 #test comment #2
 
 
-def handler(event, context):
+def test_lambda(event, context):
     '''Provide an event that contains the following keys:
 
       - operation: one of the operations in the operations dict below
