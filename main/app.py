@@ -3,24 +3,16 @@
 import boto3
 import json
 
-print('Loading function')
-
-#test comment
-# def test_lambda(event, context):
-#     message = "Hello Lambda World!"
-#     return message
-#test comment #2
-
 
 def test_lambda(event, context):
-    '''Provide an event that contains the following keys:
+    """Provide an event that contains the following keys:
 
       - operation: one of the operations in the operations dict below
       - tableName: required for operations that interact with DynamoDB
       - payload: a parameter to pass to the operation being performed
-    '''
-    #print("Received event: " + json.dumps(event, indent=2))
-    print("Newly updated Lambda function")
+    """
+    # print("Received event: " + json.dumps(event, indent=2))
+    message = "Hello Lambda World"
     operation = event['operation']
 
     if 'tableName' in event:
