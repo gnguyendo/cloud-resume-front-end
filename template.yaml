@@ -2,7 +2,6 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
   github-actions-with-aws-sam
-
   Sample SAM Template for github-actions-with-aws-sam
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
@@ -129,7 +128,7 @@ Resources:
     Properties:
       Code:
         S3Bucket: gnguyendo-cloud-resume-front-end-template
-        S3Key: $(date +"%m-%d-%Y_%H_%M").zip
+        S3Key: $(date +'%m-%d-%Y_%H_%M'.zip)
       FunctionName: TestLambdaFn
       Handler: main/app.test_lambda
       Role: !GetAtt TempLambdaRole.Arn

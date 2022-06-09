@@ -33,8 +33,6 @@ jobs:
 
   upload_lambda_function:
     runs-on: ubuntu-latest
-#    env:
-#      File_Name: $date (+"%m-%d-%Y_%H_%M").zip
     steps:
       - name: lambda zip package and update
         uses: actions/checkout@v3
