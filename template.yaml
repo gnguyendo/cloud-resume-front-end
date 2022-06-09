@@ -128,7 +128,7 @@ Resources:
     Properties:
       Code:
         S3Bucket: gnguyendo-cloud-resume-front-end-template
-        S3Key: $(date +'%m-%d-%Y_%H_%M'.zip)
+        S3Key: lambdadeploymentpackage.zip # $(date +'%m-%d-%Y_%H_%M'.zip)
       FunctionName: TestLambdaFn
       Handler: main/app.test_lambda
       Role: !GetAtt TempLambdaRole.Arn
