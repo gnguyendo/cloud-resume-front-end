@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: lambda zip package and update
         uses: actions/checkout@v3
-      - run: echo "{File_name}=$(date +'%m-%d-%Y_%H_%M'.zip)" >> $GITHUB_ENV
+      - run: echo "{File_Name}=$(date +'%m-%d-%Y_%H_%M'.zip)" >> $GITHUB_ENV
       - run: zip -r "${{env.File_Name}}"  main
       - run: aws s3 cp "${{env.File_Name}}" s3://gnguyendo-cloud-resume-front-end-template
         env:
