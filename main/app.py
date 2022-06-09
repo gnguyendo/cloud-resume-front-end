@@ -20,7 +20,7 @@ def test_lambda(event, context):
       - payload: a parameter to pass to the operation being performed
     '''
     #print("Received event: " + json.dumps(event, indent=2))
-
+    print("Newly updated Lambda function")
     operation = event['operation']
 
     if 'tableName' in event:
