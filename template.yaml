@@ -9,6 +9,12 @@ Globals:
   Function:
     Timeout: 3
 
+Parameters:
+  LambdaFileName:
+    Description: Used to get file name from S3 bucket for Lambda Function
+    Type: string
+    ParameterProperty: echo "File_Name=$(date +'%m-%d-%Y_%H_%M'.zip)"
+
 Resources:
   S3Bucket:
     Type: 'AWS::S3::Bucket'
@@ -127,16 +133,11 @@ Resources:
     Properties:
       Code:
         S3Bucket: gnguyendo-cloud-resume-front-end-template
-        S3Key: lambdadeploymentpackage.zip # $(date +'%m-%d-%Y_%H_%M'.zip)
+        S3Key: !Ref ParameterProperty # $(date +'%m-%d-%Y_%H_%M'.zip)
       FunctionName: TestLambdaFn
       Handler: main/app.test_lambda
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
-
-#  Parameters:
-#    ParameterLogicalID:
-#      Type: string
-#      ParameterProperty: value
 
 
   TempLambdaRole:
