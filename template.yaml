@@ -146,6 +146,7 @@ Resources:
             Action:
               - sts:AssumeRole
 
+
 #  HttpApi:
 #    Type: AWS::ApiGatewayV2::Api
 #    Properties:
