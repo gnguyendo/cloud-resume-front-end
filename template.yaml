@@ -79,7 +79,6 @@ Resources:
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
-
   CloudFrontCachePolicy:
     Type: AWS::CloudFront::CachePolicy
     Properties:
@@ -133,6 +132,12 @@ Resources:
       Handler: main/app.test_lambda
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
+
+#  Parameters:
+#    ParameterLogicalID:
+#      Type: string
+#      ParameterProperty: value
+
 
   TempLambdaRole:
     Type: AWS::IAM::Role
