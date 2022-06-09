@@ -38,9 +38,9 @@ jobs:
     steps:
       - name: lambda zip package and update
         uses: actions/checkout@v3
-      - run: echo "::set-ouput File_Name=$(date +'%m-%d-%Y_%H_%M'.zip)"
-      - run: zip -r "${{steps.File_Name.outputs.File_Name}}"  main
-      - run: aws s3 cp "${{steps.File_Name.outputs.File_Name}}"  s3://gnguyendo-cloud-resume-front-end-template
+      - run: echo "{File_Name}=$(date +'%m-%d-%Y_%H_%M'.zip)" >> $GITHUB_ENV
+      - run: zip -r "${{env.File_Name}}"  main
+      - run: aws s3 cp "${{env.File_Name}}" s3://gnguyendo-cloud-resume-front-end-template
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
