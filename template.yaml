@@ -155,16 +155,17 @@ Resources:
     Type: AWS::DynamoDB::Table
     Properties:
       AttributeDefinitions:
-        - WebPageViews:
+        -
           AttributeName: WebPageViews
           AttributeType: N
-        - ViewedDate:
+        -
           AttributeName: Date
           AttributeType: S
       KeySchema:
-        - TotalViewsPerDate:
-            AttributeName: Date
-            KeyType: HASH
+        -
+          AttributeName: Date
+          KeyType: HASH
+      TableName: WebPageCount
 
 #  HttpApi:
 #    Type: AWS::ApiGatewayV2::Api
