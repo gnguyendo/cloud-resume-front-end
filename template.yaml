@@ -12,8 +12,8 @@ Globals:
 Parameters:
   LambdaFileName:
     Description: Used to get file name from S3 bucket for Lambda Function
-    Type: string
-    Default:  lambdadeploymentpackage.zip #echo "File_Name=$(date +'%m-%d-%Y_%H_%M'.zip)"
+    Type: String
+#    Default:  lambdadeploymentpackage.zip #echo "File_Name=$(date +'%m-%d-%Y_%H_%M'.zip)"
 
 Resources:
   S3Bucket:
