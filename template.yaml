@@ -154,10 +154,8 @@ Resources:
   WebPageDyanmoDBTable:
     Type: AWS::DynamoDB::Table
     Properties:
+      BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
-        -
-          AttributeName: WebPageViews
-          AttributeType: N
         -
           AttributeName: Date
           AttributeType: S
@@ -166,9 +164,7 @@ Resources:
           AttributeName: Date
           KeyType: HASH
       TableName: WebPageCount
-      ProvisionedThroughput:
-        ReadCapacityUnits: 5
-        WriteCapacityUnits: 5
+
 
 #  HttpApi:
 #    Type: AWS::ApiGatewayV2::Api
