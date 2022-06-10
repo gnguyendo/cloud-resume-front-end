@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: lambda zip package and update
-        run: echo '::set-output name=file_name::$(date +'%m-%d-%Y_%H'.zip)'
+        run: echo '::set-output name=file_name::$(date +'%m-%d-%Y_%H-%M'.zip)'
         id: date-time
 #        run: echo "file_name=$(date +'%m-%d-%Y_%H_%M'.zip)" >> $GITHUB_ENV
       - run: zip -r ${{steps.date-time.outputs.file_name}}  main
