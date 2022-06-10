@@ -51,6 +51,7 @@ jobs:
 #        --parameter-overrides ParameterKey=LambdaFileName,ParameterValue=${{needs.upload_lambda_function.outputs.date_time}}
 
   sync-s3-bucket:
+    needs: build-deploy
     runs-on: ubuntu-latest
     steps:
       - name: Upload to S3

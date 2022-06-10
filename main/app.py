@@ -7,7 +7,7 @@ def test_lambda(event, context):
 
     # Create the DynamoDB table.
     table = dynamodb.create_table(
-        TableName='viewcount',
+        TableName='PAge',
         KeySchema=[
             {
                 'AttributeName': 'ViewerDate',

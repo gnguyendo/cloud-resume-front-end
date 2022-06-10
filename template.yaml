@@ -151,6 +151,21 @@ Resources:
             Action:
               - sts:AssumeRole
 
+  WebPageDyanmoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - WebPageViews:
+          AttributeName: WebPageViews
+          AttributeType: N
+        - ViewedDate:
+          AttributeName: Date
+          AttributeType: S
+      KeySchema:
+        - TotalViewsPerDate:
+            AttributeName: Date
+            KeyType: HASH
+
 #  HttpApi:
 #    Type: AWS::ApiGatewayV2::Api
 #    Properties:
