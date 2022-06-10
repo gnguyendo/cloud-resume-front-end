@@ -1,5 +1,5 @@
 import boto3
-impor
+
 
 def test_lambda(event, context):
     # # Get the service resource.

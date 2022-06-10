@@ -13,8 +13,7 @@ jobs:
       - name: lambda zip package and update
         run: echo '::set-output name=file_name::$(date +'%m-%d-%Y_%H_%M'.zip)'
         id: date-time
-#        run: echo '::set-output name=$(date +'%m-%d-%Y_%H_%M'.zip)::file_name'
-#      - run: echo "File_Name=$(date +'%m-%d-%Y_%H_%M'.zip)" >> $GITHUB_ENV
+#      - run: echo "file_name=$(date +'%m-%d-%Y_%H_%M'.zip)" >> $GITHUB_ENV
       - run: zip -r ${{steps.date-time.outputs.file_name}}  main
       - run: aws s3 cp ${{steps.date-time.outputs.file_name}} s3://gnguyendo-cloud-resume-front-end-template
         env:
@@ -38,7 +37,6 @@ jobs:
       - run: sam build --use-container
   # Run Unit tests-Specify unit tests here
   # sam deploy
-      - run: echo ${{needs.upload_lambda_function.outputs.date_time}}
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-front-end --s3-bucket gnguyendo-cloud-resume-front-end-template --capabilities CAPABILITY_NAMED_IAM --region us-east-1 --parameter-overrides ParameterKey=LambdaFileName,ParameterValue=${{needs.upload_lambda_function.outputs.date_time}}
 #      - run: >-
 #        sam deploy --no-confirm-changeset
