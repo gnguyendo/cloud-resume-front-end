@@ -5,30 +5,28 @@ import json
 
 
 def test_lambda(event, context):
-    """Provide an event that contains the following keys:
+    # Get the service resource.
+    dynamodb = boto3.resource('dynamodb')
 
-      - operation: one of the operations in the operations dict below
-      - tableName: required for operations that interact with DynamoDB
-      - payload: a parameter to pass to the operation being performed
-    """
-    # print("Received event: " + json.dumps(event, indent=2))
-    message = "Hello Lambda World"
-    operation = event['operation']
+    # Create the DynamoDB table.
+    table = dynamodb.create_table(
+        TableName='viewcount',
+        KeySchema=[
+            {
+                'AttributeName': 'WebPageViews',
+                'KeyType': 'HASH'
+            },
+        ],
+        AttributeDefinitions=[
+            {
+                'AttributeName': 'WebPageViews',
+                'AttributeType': 'N'
+            }
+        ]
+    )
 
-    if 'tableName' in event:
-        dynamo = boto3.resource('dynamodb').Table(event['tableName'])
+    # Wait until the table exists.
+    table.wait_until_exists()
 
-    operations = {
-        'create': lambda x: dynamo.put_item(**x),
-        'read': lambda x: dynamo.get_item(**x),
-        'update': lambda x: dynamo.update_item(**x),
-        'delete': lambda x: dynamo.delete_item(**x),
-        'list': lambda x: dynamo.scan(**x),
-        'echo': lambda x: x,
-        'ping': lambda x: 'pong'
-    }
-
-    if operation in operations:
-        return operations[operation](event.get('payload'))
-    else:
-        raise ValueError('Unrecognized operation "{}"'.format(operation))
+    # Print out some data about the table.
+    print(table.item_count)
