@@ -166,6 +166,9 @@ Resources:
           AttributeName: Date
           KeyType: HASH
       TableName: WebPageCount
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
 
 #  HttpApi:
 #    Type: AWS::ApiGatewayV2::Api
