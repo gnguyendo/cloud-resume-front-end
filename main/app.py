@@ -1,7 +1,4 @@
-# from __future__ import print_function
-
 import boto3
-import json
 
 
 def test_lambda(event, context):
@@ -24,9 +21,13 @@ def test_lambda(event, context):
             }
         ]
     )
-
     # Wait until the table exists.
     table.wait_until_exists()
 
     # Print out some data about the table.
     print(table.item_count)
+
+    message = "Hello Lambda World"
+    return message
+
+
