@@ -13,7 +13,8 @@ jobs:
       - name: lambda zip package and update
         run: |
           temp_file_name="$(date +'%m-%d-%Y_%H-%M'.zip)"
-          echo '::set-output name=file_name::$temp_file_name'
+          echo "$temp_file_name"
+          echo "::set-output name=file_name::$temp_file_name"
         id: date-time
 #        run: echo "file_name=$(date +'%m-%d-%Y_%H_%M'.zip)" >> $GITHUB_ENV
       - run: zip -r ${{steps.date-time.outputs.file_name}}  main
