@@ -139,7 +139,6 @@ Resources:
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
 
-
   TempLambdaRole:
     Type: AWS::IAM::Role
     Properties:
@@ -151,7 +150,6 @@ Resources:
               Service: lambda.amazonaws.com
             Action:
               - sts:AssumeRole
-
 
 #  HttpApi:
 #    Type: AWS::ApiGatewayV2::Api
