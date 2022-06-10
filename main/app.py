@@ -10,14 +10,18 @@ def test_lambda(event, context):
         TableName='viewcount',
         KeySchema=[
             {
-                'AttributeName': 'WebPageViews',
-                'KeyType': 'HASH'
+                'AttributeName': 'ViewerDate',
+                'KeyType': 'RANGE'
             },
         ],
         AttributeDefinitions=[
             {
                 'AttributeName': 'WebPageViews',
                 'AttributeType': 'N'
+            },
+            {
+                'AttributeName': 'ViewerDate',
+                'AttributeType': 'S'
             }
         ]
     )
