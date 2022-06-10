@@ -37,7 +37,7 @@ jobs:
       - run: sam build --use-container
   # Run Unit tests-Specify unit tests here
   # sam deploy
-      - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-front-end --s3-bucket gnguyendo-cloud-resume-front-end-template --capabilities CAPABILITY_NAMED_IAM --region us-east-1 --parameter-overrides ParameterKey=filename, ParameterValue=${{needs.upload_lambda_function.outputs.date_time}}
+      - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-front-end --s3-bucket gnguyendo-cloud-resume-front-end-template --capabilities CAPABILITY_NAMED_IAM --region us-east-1 --parameter-overrides ParameterKey=filename,ParameterValue=${{needs.upload_lambda_function.outputs.date_time}}
 
   sync-s3-bucket:
     runs-on: ubuntu-latest
