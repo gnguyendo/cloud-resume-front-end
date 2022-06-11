@@ -142,7 +142,6 @@ Resources:
         Variables:
           DataBaseName: !Ref WebPageDynamoDBTable
 
-
   TempLambdaRole:
     Type: AWS::IAM::Role
     Properties:
