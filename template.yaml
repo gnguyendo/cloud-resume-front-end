@@ -161,17 +161,6 @@ Resources:
                     Action: "dynamodb:UpdateItem"
                     Resource: !GettAtt WebPageDynamoDBTable.Arn
 
-  #  LambdoDynamoDBPolicy:
-#    Type: AWS::IAM::Policy
-#    Properties:
-#      PolicyName: LambdaDynamoDBPermission
-#      PolicyDocument:
-#        Version: "2012-10-17"
-#        Statement:
-#          - Effect: Allow
-#            Action:
-#              - "dynamodb:UpdateItem"
-#            Resource: "*"
 
   WebPageDynamoDBTable:
     Type: AWS::DynamoDB::Table
