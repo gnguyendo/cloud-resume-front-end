@@ -139,7 +139,8 @@ Resources:
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
       Environment:
-        DataBaseName: !Ref WebPageDynamoDBTable
+        Variables:
+          DataBaseName: !Ref WebPageDynamoDBTable
 
   TempLambdaRole:
     Type: AWS::IAM::Role
