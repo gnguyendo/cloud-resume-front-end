@@ -139,7 +139,7 @@ Resources:
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
       Environment:
-        DataBaseName: !GettAtt WebPageDynamoDBTable.TableName
+        DataBaseName: !GettAtt WebPageDynamoDBTable
 
   TempLambdaRole:
     Type: AWS::IAM::Role
@@ -157,7 +157,7 @@ Resources:
           PolicyDocument:
               Version: "2012-10-17"
               Statement:
-                  - Effect: "Allow"
+                  - Effect: Allow
                     Action: "dynamodb:UpdateItem"
                     Resource: !GettAtt WebPageDynamoDBTable.Arn
 
