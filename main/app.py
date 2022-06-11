@@ -1,37 +1,19 @@
 import boto3
+import os
+from datetime import date
+
+client = boto3.client("dynamodb")
+web_page_counter = os.environ.get('DataBaseName')
+curr_date = date.today().strftime("%m/%d/%y")
 
 
 def test_lambda(event, context):
-    # Get the service resource.
-    dynamodb = boto3.resource('dynamodb')
-
-    # Create the DynamoDB table.
-    table = dynamodb.create_table(
-        TableName='PAge',
-        KeySchema=[
-            {
-                'AttributeName': 'ViewerDate',
-                'KeyType': 'RANGE'
-            },
-        ],
-        AttributeDefinitions=[
-            {
-                'AttributeName': 'WebPageViews',
-                'AttributeType': 'N'
-            },
-            {
-                'AttributeName': 'ViewerDate',
-                'AttributeType': 'S'
-            }
-        ]
+    response = client.update_item(
+        TableName=web_page_counter,
+        Key={"Date": {"S": curr_date}},
+        UpdateExpression="ADD total_views :view",
+        ExpressionAttributeValues="{':view' : {'N': 1}"
     )
-    # Wait until the table exists.
-    table.wait_until_exists()
-
-    # Print out some data about the table.
-    print(table.item_count)
 
     message = "Hello Lambda World"
     return message
-
-

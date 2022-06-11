@@ -138,6 +138,8 @@ Resources:
       Handler: main/app.test_lambda
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
+      Environment:
+        DataBaseName: !GettAtt WebPageDynamoDBTable.TableName
 
   TempLambdaRole:
     Type: AWS::IAM::Role
@@ -150,8 +152,28 @@ Resources:
               Service: lambda.amazonaws.com
             Action:
               - sts:AssumeRole
+      Policies:
+        - PolicyName: LambdaDynamoDBPermission
+          PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                  - Effect: "Allow"
+                    Action: "dynamodb:UpdateItem"
+                    Resource: !GettAtt WebPageDynamoDBTable
 
-  WebPageDyanmoDBTable:
+  #  LambdoDynamoDBPolicy:
+#    Type: AWS::IAM::Policy
+#    Properties:
+#      PolicyName: LambdaDynamoDBPermission
+#      PolicyDocument:
+#        Version: "2012-10-17"
+#        Statement:
+#          - Effect: Allow
+#            Action:
+#              - "dynamodb:UpdateItem"
+#            Resource: "*"
+
+  WebPageDynamoDBTable:
     Type: AWS::DynamoDB::Table
     Properties:
       BillingMode: PAY_PER_REQUEST
