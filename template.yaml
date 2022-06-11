@@ -149,7 +149,7 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              Service: lambda.amazonaws.com.TableName
+              Service: lambda.amazonaws.com
             Action:
               - sts:AssumeRole
       Policies:
