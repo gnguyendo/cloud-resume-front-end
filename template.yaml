@@ -139,7 +139,7 @@ Resources:
       Role: !GetAtt TempLambdaRole.Arn
       Runtime: python3.8
       Environment:
-        DataBaseName: !GettAtt WebPageDynamoDBTable
+        DataBaseName: !Ref WebPageDynamoDBTable
 
   TempLambdaRole:
     Type: AWS::IAM::Role
@@ -149,7 +149,7 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              Service: lambda.amazonaws.com
+              Service: lambda.amazonaws.com.TableName
             Action:
               - sts:AssumeRole
       Policies:
