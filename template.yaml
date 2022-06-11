@@ -174,7 +174,6 @@ Resources:
         -
           AttributeName: Date
           KeyType: HASH
-      TableName: WebPageCount
 
 
 #  HttpApi:
