@@ -12,8 +12,8 @@ def test_lambda(event, context):
         TableName=web_page_counter,
         Key={"Date": {"S": curr_date}},
         UpdateExpression="ADD total_views :view",
-        ExpressionAttributeValues="{':view' : {'N': '1'}}",
-        ReturnValues='ALL_NEW'
+        ExpressionAttributeValues={":view": {"N": "1"}},
+        ReturnValues="ALL_NEW"
     )
 
     message = "Hello Lambda World"
