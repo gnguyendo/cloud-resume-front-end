@@ -12,8 +12,8 @@ Globals:
 Parameters:
   TempAPIGateWay:
     Type: String
-  type:
-    Type: String
+#  type:
+#    Type: String
 
   LambdaFileName:
     Description: Used to get file name from S3 bucket for Lambda Function
