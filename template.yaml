@@ -10,6 +10,11 @@ Globals:
     Timeout: 3
 
 Parameters:
+  TempAPIGateWay:
+    Type: String
+  type:
+    Type: String
+
   LambdaFileName:
     Description: Used to get file name from S3 bucket for Lambda Function
     Type: String
@@ -162,7 +167,6 @@ Resources:
                     Action: "dynamodb:UpdateItem"
                     Resource: !GetAtt WebPageDynamoDBTable.Arn
 
-
   WebPageDynamoDBTable:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -176,6 +180,46 @@ Resources:
           AttributeName: Date
           KeyType: HASH
 
+  RestAPIGateWay:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        EndpointConfiguration:
+          Types:
+            - !Ref type
+        Name: !Ref TempAPIGateWay
+
+  RestAPIGatewayProxyMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref RestAPIGateWay
+      ResourceId: !Ref RestAPIGatewayProxyResource
+      HttpMethod: ANY
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub >-
+          arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaForSimpleProxy.Arn}/invocations
+
+  RestAPIGatewayProxyResource:
+    Type: 'AWS::ApiGateway::Resource'
+    Properties:
+      RestApiId: !Ref RestAPIGateWay
+      ParentId: !GetAtt
+        - RestAPIGateWay
+        - RootResourceId
+      PathPart: '{proxy+}'
+
+#    Creating a REST API in Amazon API Gateway
+#    Controlling and managing access to a REST API in API Gateway
+#    Setting up REST API integrations
+#    Enable request validation in API Gateway
+#    Setting up data transformations for REST APIs
+#    Gateway responses in API Gateway
+#    Enabling CORS for a REST API resource
+#    Working with binary media types for REST APIs
+#    Invoking a REST API in Amazon API Gateway
+#    Configuring a REST API using OpenAPI
 
 Outputs:
   WebsiteURL:
