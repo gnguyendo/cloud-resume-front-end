@@ -11,8 +11,8 @@ Globals:
 
 Parameters:
   TempAPIGateWay:
+    Default: apiGateway
     Type: String
-
 
   LambdaFileName:
     Description: Used to get file name from S3 bucket for Lambda Function
