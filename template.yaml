@@ -215,7 +215,7 @@ Resources:
       Action: "lambda:InvokeFunction"
       FunctionName: !GetAtt TempLambdaFunction.Arn
       Principal: "apigateway.amazonaws.com"
-      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${RestAPIGateWay}/${RestAPIGatewayProxyMethod}/${RestAPIGatewayProxyResource}
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${RestAPIGateWay}/*
 
 #    Creating a REST API in Amazon API Gateway
 #    Controlling and managing access to a REST API in API Gateway
