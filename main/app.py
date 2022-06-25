@@ -16,6 +16,6 @@ def test_lambda(event, context):
         ReturnValues="ALL_NEW"
     )
 
-    message = "Hello Lambda World"
-    return message
+
+    return response
 
