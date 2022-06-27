@@ -39,4 +39,6 @@ def test_lambda(event, context):
               }
            ]
         }
-    return book_json
+
+    test_json = json.dumps(book_json, indent=2)
+    return test_json
