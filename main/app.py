@@ -18,4 +18,6 @@ def test_lambda(event, context):
         ReturnValues="ALL_NEW"
     )
     d = {1: 'a', 2: 'b', 3: 'c'}
-    return json.dumps(d, indent=1)
+    print(response)
+    print(json.dumps(response, indent=2))
+    return json.dumps(d, indent=2)
