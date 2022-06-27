@@ -19,4 +19,24 @@ def test_lambda(event, context):
     )
     d = {1: 'a', 2: 'b', 3: 'c'}
     json_object = json.dumps(response, indent=2)
-    return json_object
+
+    book_json = \
+        {
+           "book": [
+
+              {
+                 "id":"01",
+                 "language": "Java",
+                 "edition": "third",
+                 "author": "Herbert Schildt"
+              },
+
+              {
+                 "id":"07",
+                 "language": "C++",
+                 "edition": "second",
+                 "author": "E.Balagurusamy"
+              }
+           ]
+        }
+    return book_json
