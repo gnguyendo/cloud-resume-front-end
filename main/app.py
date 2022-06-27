@@ -16,14 +16,17 @@ def test_lambda(event, context):
         ExpressionAttributeValues={":view": {"N": "1"}},
         ReturnValues="ALL_NEW"
     )
-    d = {1: 'a', 2: 'b', 3: 'c'}
-    # json_object = json.dumps(response, indent=2)
 
     response = \
         {
             "isBase64Encoded": True,
             "statusCode": 200,
-            # "headers": {"headerName": "headerValue"},
+            "headers":
+                {
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Access-Control-Allow-Origin': 'https://www.geoffreynguyendo-resume.com/',
+                    'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+                },
             # "multiValueHeaders": {},
             "body": json.dumps(response_body, indent=2)
         }
