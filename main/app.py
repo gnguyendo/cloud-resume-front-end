@@ -17,9 +17,9 @@ def test_lambda(event, context):
         ReturnValues="ALL_NEW"
     )
 
-    res1 = response_body.curr_date
-    res2 = response_body[curr_date]
-    print(res1, res2)
+    # res1 = response_body.curr_date
+    # res2 = response_body[curr_date]
+    # print(res1, res2)
 
     response = \
         {
@@ -34,5 +34,4 @@ def test_lambda(event, context):
             # "multiValueHeaders": {},
             "body": json.dumps(response_body, indent=1)
         }
-
     return response
