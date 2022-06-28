@@ -16,8 +16,9 @@ def test_lambda(event, context):
         ExpressionAttributeValues={":view": {"N": "1"}},
         ReturnValues="ALL_NEW"
     )
-
-    print(response_body)
+    
+    test = response_body[-1]
+    print("SEE HERE",response_body[0])
 
     response = \
         {
@@ -30,6 +31,6 @@ def test_lambda(event, context):
                     'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
                 },
             # "multiValueHeaders": {},
-            "body": json.dumps(response_body, indent=1)
+            "body": json.dumps(test, indent=1)
         }
     return response
