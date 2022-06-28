@@ -209,6 +209,13 @@ Resources:
         - RootResourceId
       PathPart: '{proxy+}'
 
+  RestAPIDeployment:
+    Type: AWS::ApiGateway::Deployment
+    Properties:
+      Description: String
+      RestApiId: !Ref RestAPIGateWay
+      StageName: Prod
+
   ApiPermission:
     Type: AWS::Lambda::Permission
     Properties:
