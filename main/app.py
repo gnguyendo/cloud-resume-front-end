@@ -17,18 +17,20 @@ def test_lambda(event, context):
         ReturnValues="ALL_NEW"
     )
 
+    res = response_body[curr_date]
+
     response = \
         {
             "isBase64Encoded": True,
             "statusCode": 200,
             "headers":
                 {
-                    'Access-Control-Allow-Headers': 'Content-Type',
-                    'Access-Control-Allow-Origin': "https://www.geoffreynguyendo-resume.com",
+                    'Access-Control-Allow-Headers': '*',
+                    'Access-Control-Allow-Origin': "*",
                     'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
                 },
             # "multiValueHeaders": {},
-            "body": json.dumps(response_body, indent=1)
+            "body": json.dumps(res, indent=1)
         }
 
     return response
