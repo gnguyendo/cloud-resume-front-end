@@ -17,9 +17,7 @@ def test_lambda(event, context):
         ReturnValues="ALL_NEW"
     )
 
-    # res1 = response_body.curr_date
-    # res2 = response_body[curr_date]
-    # print(res1, res2)
+    print(response_body)
 
     response = \
         {
