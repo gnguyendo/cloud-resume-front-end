@@ -14,7 +14,7 @@ def test_lambda(event, context):
         Key={"Date": {"S": curr_date}},
         UpdateExpression="ADD total_views :view",
         ExpressionAttributeValues={":view": {"N": "1"}},
-        ReturnValues="ALL_NEW"
+        ReturnValues="UPDATED_NEW"
     )
 
     res = response_body[curr_date]
