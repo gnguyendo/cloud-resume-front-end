@@ -3,10 +3,10 @@
         <script>
             fetch('https://xkz48sonse.execute-api.us-east-1.amazonaws.com/Prod/{proxy+}')
               .then(response => response.json())
-<!--              .then(data => console.log(data));-->
+              .then(data => console.log(data))
               .then((data) => {
                 document.getElementById("page_views").innerText = data
-              })
+              });
         </script>
         <title>My Website Home Page</title>
     </head>
