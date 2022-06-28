@@ -28,7 +28,7 @@ def test_lambda(event, context):
             #         'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
             #     },
             # "multiValueHeaders": {},
-            "body": json.dumps(response_body, indent=2)
+            "body": json.dumps(response_body, indent=1)
         }
 
     return response
