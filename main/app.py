@@ -21,12 +21,12 @@ def test_lambda(event, context):
         {
             "isBase64Encoded": True,
             "statusCode": 200,
-            "headers":
-                {
-                    'Access-Control-Allow-Headers': 'Content-Type',
-                    'Access-Control-Allow-Origin': 'https://www.geoffreynguyendo-resume.com/',
-                    'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
-                },
+            # "headers":
+            #     {
+            #         'Access-Control-Allow-Headers': 'Content-Type',
+            #         'Access-Control-Allow-Origin': 'https://www.geoffreynguyendo-resume.com/',
+            #         'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+            #     },
             # "multiValueHeaders": {},
             "body": json.dumps(response_body, indent=2)
         }
