@@ -17,8 +17,6 @@ def test_lambda(event, context):
         ReturnValues="UPDATED_NEW"
     )
 
-    res = response_body[curr_date]
-
     response = \
         {
             "isBase64Encoded": True,
@@ -30,7 +28,7 @@ def test_lambda(event, context):
                     'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
                 },
             # "multiValueHeaders": {},
-            "body": json.dumps(res, indent=1)
+            "body": json.dumps(response_body, indent=1)
         }
 
     return response
