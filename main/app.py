@@ -24,7 +24,7 @@ def test_lambda(event, context):
             "headers":
                 {
                     'Access-Control-Allow-Headers': 'Content-Type',
-                    'Access-Control-Allow-Origin': 'https://www.geoffreynguyendo-resume.com/',
+                    'Access-Control-Allow-Origin': "https://www.geoffreynguyendo-resume.com",
                     'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
                 },
             # "multiValueHeaders": {},
