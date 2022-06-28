@@ -17,8 +17,7 @@ def test_lambda(event, context):
         ReturnValues="ALL_NEW"
     )
     
-    test = response_body[-1]
-    print("SEE HERE",response_body[0])
+    test = 
 
     response = \
         {
