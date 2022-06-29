@@ -3,7 +3,11 @@
         <script>
             fetch('https://xkz48sonse.execute-api.us-east-1.amazonaws.com/Prod/{proxy+}')
               .then(response => response.json())
-              .then(data => console.log(data.Attributes.total_views));
+              .then((data) => {
+                document.getElementById("pageviews").innerText = data.Attributes.total_views
+              });
+            //   .then(data => console.log(data.Attributes.total_views));
+    
         </script>
         <title>My Website Home Page</title>
     </head>
@@ -12,7 +16,7 @@
         <p>Now hosted on Amazon S3!</p>
         <p>
             Visitors Today:
-            <span id="page_views" />
+            <span id="pageviews" />
         </p>
 
         <p></p>
