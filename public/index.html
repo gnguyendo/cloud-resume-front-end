@@ -4,7 +4,7 @@
             fetch('https://xkz48sonse.execute-api.us-east-1.amazonaws.com/Prod/{proxy+}')
               .then(response => response.json())
               .then((data) => {
-                document.getElementById("pageviews").innerText = data.Attributes.total_views.N
+                document.getElementById("pageviews").innerText = data
               });
             //   .then(data => console.log(data.Attributes.total_views.N));
     
