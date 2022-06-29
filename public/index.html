@@ -4,9 +4,9 @@
             fetch('https://xkz48sonse.execute-api.us-east-1.amazonaws.com/Prod/{proxy+}')
               .then(response => response.json())
               .then((data) => {
-                document.getElementById("pageviews").innerText = data.Attributes.total_views
+                document.getElementById("pageviews").innerText = data.Attributes.total_views.N
               });
-            //   .then(data => console.log(data.Attributes.total_views));
+            //   .then(data => console.log(data.Attributes.total_views.N));
     
         </script>
         <title>My Website Home Page</title>
