@@ -42,8 +42,8 @@ Resources:
     Properties:
       DistributionConfig:
         Aliases:
-          - geoffreynguyendo-resume.com
-          - www.geoffreynguyendo-resume.com
+          - geoffreynguyendo.com
+          - www.geoffreynguyendo.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
@@ -75,7 +75,9 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/7e3f5656-09e9-45e6-a769-13bf6e2fafe8"
+          # arn:aws:acm:us-east-1:976309919253:certificate/7e3f5656-09e9-45e6-a769-13bf6e2fafe8 old one
+          # arn:aws:acm:us-east-1:976309919253:certificate/29ccfdd8-3835-4577-a17a-0bc258ffbb9e new one for geoffreynguyen
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/29ccfdd8-3835-4577-a17a-0bc258ffbb9e"
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
@@ -99,10 +101,10 @@ Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
-      DomainName: geoffreynguyendo-resume.com
+      DomainName: geoffreynguyendo.com
       CertificateTransparencyLoggingPreference: ENABLED
       DomainValidationOptions:
-        - DomainName: geoffreynguyendo-resume.com
+        - DomainName: geoffreynguyendo.com
           HostedZoneId: Z04370213OSM26SKRBEJW
       ValidationMethod: DNS
 
@@ -111,12 +113,12 @@ Resources:
     Properties:
       HostedZoneId: Z04370213OSM26SKRBEJW
       RecordSets:
-        - Name: geoffreynguyendo-resume.com
+        - Name: geoffreynguyendo.com
           Type: A
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CloudFrontDistribution.DomainName
-        - Name: www.geoffreynguyendo-resume.com
+        - Name: www.geoffreynguyendo.com
           Type: A
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
