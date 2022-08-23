@@ -105,13 +105,13 @@ Resources:
       CertificateTransparencyLoggingPreference: ENABLED
       DomainValidationOptions:
         - DomainName: geoffreynguyendo.com
-          HostedZoneId: Z04370213OSM26SKRBEJW
+          HostedZoneId: Z0644206IP9MKPD2HGPE
       ValidationMethod: DNS
 
   Route53DNSRecordSetGroup:
     Type: 'AWS::Route53::RecordSetGroup'
     Properties:
-      HostedZoneId: Z04370213OSM26SKRBEJW
+      HostedZoneId: Z0644206IP9MKPD2HGPE
       RecordSets:
         - Name: geoffreynguyendo.com
           Type: A
