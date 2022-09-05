@@ -53,3 +53,21 @@ body {
     letter-spacing: .2rem;
   }
 }
+
+.education {
+  padding: 10px;
+
+  .edu {
+    margin-top: 10px;
+  }
+
+  .degree-cert {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 3rem;
+    letter-spacing: .2rem;
+  }
+}
