@@ -38,8 +38,9 @@ body {
 
 .work-experience {
   padding: 10px;
-  .experience-title {
-    margin-top: 15px;
+
+  .experience_title {
+    margin-top: 10px;
   }
 
   .experience-summary {
