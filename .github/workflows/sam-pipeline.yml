@@ -18,6 +18,7 @@ jobs:
           aws-region: us-east-1
       # sam build
       - run: sam build --use-container
+
   # Run Unit tests-Specify unit tests here
   # sam deploy
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --stack-name sam-front-end --s3-bucket gnguyendo-cloud-resume-front-end-template --capabilities CAPABILITY_NAMED_IAM --region us-east-1
@@ -41,4 +42,3 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           AWS_DEFAULT_REGION: 'us-east-1'
-
