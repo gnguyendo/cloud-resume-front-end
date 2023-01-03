@@ -54,7 +54,6 @@ body {
 }
 
 
-
 .education {
   padding: 10px;
 
@@ -66,4 +65,8 @@ body {
     font-size: 1.2rem;
     letter-spacing: .2rem;
   }
+}
+
+.year {
+  float: right;
 }
