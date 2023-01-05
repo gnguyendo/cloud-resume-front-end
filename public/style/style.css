@@ -11,20 +11,40 @@ body {
 .title {
   margin-top: 50px;
   margin-bottom: 10px;
-
-  a {
+  text-align: center;
+  /* a {
     color: #DB4D57;
-
     &:hover {
       text-decoration: none;
       font-weight: bold;
     }
   }
-
   hr {
     width: 75%;
-  }
+  } */
 }
+
+#social-menus {
+  display: inline;
+
+}
+
+
+#social-menu li{
+  display: inline;
+  padding: 5px 10px;
+}
+
+
+/* ul.justify-content-center{
+  display: inline-block;
+  ul > li {
+    display: inline-block;
+    padding: 8px;
+  }
+} */
+
+
 
 .projects {
   padding: 20px;
@@ -37,15 +57,12 @@ body {
 
 .work-experience {
   padding: 10px;
-
   .experience_title {
     margin-top: 10px;
   }
-
   .experience-summary {
     margin-bottom: 10px;
   }
-
   p {
     font-size: 1.2rem;
     letter-spacing: .2rem;
@@ -55,11 +72,9 @@ body {
 
 .education {
   padding: 10px;
-
   .degree-cert {
     margin-bottom: 10px;
   }
-
   p {
     font-size: 1.2rem;
     letter-spacing: .2rem;
@@ -69,3 +84,5 @@ body {
 .year {
   float: right;
 }
+
+
