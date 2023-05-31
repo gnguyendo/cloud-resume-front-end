@@ -62,7 +62,7 @@ Resources:
               HTTPPort: 80
               HTTPSPort: 443
               OriginKeepaliveTimeout: 5
-              OriginProtocolPolicy: http-only
+              OriginProtocolPolicy: match-viewer
               OriginReadTimeout: 15
               OriginSSLProtocols:
                 - SSLv3
