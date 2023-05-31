@@ -54,7 +54,7 @@ Resources:
             - HEAD
           CachePolicyId: !Ref CloudFrontCachePolicy
           TargetOriginId: gnguyendoS3origin
-          ViewerProtocolPolicy: redirect-to-https
+          ViewerProtocolPolicy: allow-all
         IPV6Enabled: True
         Enabled: True
         Origins:
@@ -75,8 +75,6 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          # arn:aws:acm:us-east-1:976309919253:certificate/7e3f5656-09e9-45e6-a769-13bf6e2fafe8 old one
-          # arn:aws:acm:us-east-1:976309919253:certificate/29ccfdd8-3835-4577-a17a-0bc258ffbb9e new one for geoffreynguyen.com
           AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/29ccfdd8-3835-4577-a17a-0bc258ffbb9e"
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
