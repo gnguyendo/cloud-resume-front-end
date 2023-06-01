@@ -54,7 +54,7 @@ Resources:
             - HEAD
           CachePolicyId: !Ref CloudFrontCachePolicy
           TargetOriginId: gnguyendoS3origin
-          ViewerProtocolPolicy: allow-all
+          ViewerProtocolPolicy: redirect-to-https
         IPV6Enabled: True
         Enabled: True
         Origins:

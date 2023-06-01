@@ -4,6 +4,7 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+
 .separator {
   width: 30%;
 }
@@ -12,48 +13,19 @@ body {
   margin-top: 50px;
   margin-bottom: 10px;
   text-align: center;
-  /* a {
-    color: #DB4D57;
-    &:hover {
-      text-decoration: none;
-      font-weight: bold;
-    }
-  }
-  hr {
-    width: 75%;
-  } */
 }
-
-#social-menus {
-  display: inline;
-
-}
-
 
 #social-menu li{
   display: inline;
-  padding: 5px 10px c;
 }
 
-
-/* ul.justify-content-center{
-  display: inline-block;
-  ul > li {
-    display: inline-block;
-    padding: 8px;
-  }
-} */
-
-
+#social-menu {
+  padding-left: 0;
+}
 
 .projects {
   padding: 20px;
-  p {
-    font-size: 1.2rem;
-    letter-spacing: .2rem;
-  }
 }
-
 
 .work-experience {
   padding: 10px;
@@ -63,10 +35,6 @@ body {
   .experience-summary {
     margin-bottom: 10px;
   }
-  p {
-    font-size: 1.2rem;
-    letter-spacing: .2rem;
-  }
 }
 
 
@@ -74,10 +42,6 @@ body {
   padding: 10px;
   .degree-cert {
     margin-bottom: 10px;
-  }
-  p {
-    font-size: 1.2rem;
-    letter-spacing: .2rem;
   }
 }
 
