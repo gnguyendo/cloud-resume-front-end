@@ -5,9 +5,9 @@ body {
 }
 
 
-.separator {
+/* .separator {
   width: 30%;
-}
+} */
 
 .title {
   margin-top: 50px;
@@ -23,8 +23,16 @@ body {
   padding-left: 0;
 }
 
+#social-menus p {
+  margin-bottom: 0;
+}
+
 .projects {
   padding: 20px;
+}
+
+#job-title {
+  padding-left: 20px;
 }
 
 .work-experience {
