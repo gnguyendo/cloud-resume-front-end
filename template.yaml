@@ -75,7 +75,7 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/401f0e1a-0f5e-49c1-8729-280e6d24d90a"
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/e9d91ad1-36bf-4a67-8fd3-bf5d6fd4e7da"
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
 
