@@ -14,7 +14,6 @@ Resources:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
     Properties:
-      # AccessControl: PublicRead
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
       OwnershipControls:
