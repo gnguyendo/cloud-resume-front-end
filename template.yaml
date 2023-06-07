@@ -42,92 +42,90 @@ Resources:
                 - /*
             Principal: '*'
 
+  # CloudFrontCachePolicy:
+  #   Type: AWS::CloudFront::CachePolicy
+  #   Properties:
+  #     CachePolicyConfig:
+  #       DefaultTTL: 1
+  #       MaxTTL: 1
+  #       MinTTL: 1
+  #       Name: gnguyendo-cloudfront-cache-policy
+  #       ParametersInCacheKeyAndForwardedToOrigin:
+  #         CookiesConfig:
+  #           CookieBehavior: all
+  #         EnableAcceptEncodingGzip: True
+  #         HeadersConfig:
+  #           HeaderBehavior: none
+  #         QueryStringsConfig:
+  #           QueryStringBehavior: all
+  
+  #   CloudFrontDistribution:
+  #   Type: AWS::CloudFront::Distribution
+  #   Properties:
+  #     DistributionConfig:
+  #       Aliases:
+  #         - geoffreynguyendo.com
+  #         - www.geoffreynguyendo.com
+  #       DefaultRootObject: index.html
+  #       DefaultCacheBehavior:
+  #         AllowedMethods:
+  #           - GET
+  #           - HEAD
+  #         CachedMethods:
+  #           - GET
+  #           - HEAD
+  #         CachePolicyId: !Ref CloudFrontCachePolicy
+  #         TargetOriginId: gnguyendoS3origin
+  #         ViewerProtocolPolicy: redirect-to-https
+  #       IPV6Enabled: True
+  #       Enabled: True
+  #       Origins:
+  #         - CustomOriginConfig:
+  #             HTTPPort: 80
+  #             HTTPSPort: 443
+  #             OriginKeepaliveTimeout: 5
+  #             OriginProtocolPolicy: http-only
+  #             OriginReadTimeout: 15
+  #             OriginSSLProtocols:
+  #               - SSLv3
+  #               - TLSv1
+  #               - TLSv1.1
+  #               - TLSv1.2
+  #           DomainName: !Join
+  #           - ''
+  #           - - !Ref S3Bucket
+  #             - '.s3-website-us-east-1.amazonaws.com'
+  #           Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
+  #       ViewerCertificate:
+  #         AcmCertificateArn:  "arn:aws:acm:us-east-1:976309919253:certificate/e8f636c5-3a64-45a7-bcd7-c6e158de0df1"
+  #         MinimumProtocolVersion: TLSv1.2_2021
+  #         SslSupportMethod: sni-only
 
-  CloudFrontDistribution:
-    Type: AWS::CloudFront::Distribution
-    Properties:
-      DistributionConfig:
-        Aliases:
-          - geoffreynguyendo.com
-          - www.geoffreynguyendo.com
-        DefaultRootObject: index.html
-        DefaultCacheBehavior:
-          AllowedMethods:
-            - GET
-            - HEAD
-          CachedMethods:
-            - GET
-            - HEAD
-          CachePolicyId: !Ref CloudFrontCachePolicy
-          TargetOriginId: gnguyendoS3origin
-          ViewerProtocolPolicy: redirect-to-https
-        IPV6Enabled: True
-        Enabled: True
-        Origins:
-          - CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginKeepaliveTimeout: 5
-              OriginProtocolPolicy: http-only
-              OriginReadTimeout: 15
-              OriginSSLProtocols:
-                - SSLv3
-                - TLSv1
-                - TLSv1.1
-                - TLSv1.2
-            DomainName: !Join
-            - ''
-            - - !Ref S3Bucket
-              - '.s3-website-us-east-1.amazonaws.com'
-            Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
-        ViewerCertificate:
-          AcmCertificateArn:  "arn:aws:acm:us-east-1:976309919253:certificate/e8f636c5-3a64-45a7-bcd7-c6e158de0df1"
-          MinimumProtocolVersion: TLSv1.2_2021
-          SslSupportMethod: sni-only
+  # ACMCertificate:
+  #   Type: AWS::CertificateManager::Certificate
+  #   Properties:
+  #     DomainName: geoffreynguyendo.com
+  #     CertificateTransparencyLoggingPreference: ENABLED
+  #     DomainValidationOptions:
+  #       - DomainName: geoffreynguyendo.com
+  #         HostedZoneId: Z082904935P6WP1NOBKS1
+  #     ValidationMethod: DNS
 
-
-  CloudFrontCachePolicy:
-    Type: AWS::CloudFront::CachePolicy
-    Properties:
-      CachePolicyConfig:
-        DefaultTTL: 1
-        MaxTTL: 1
-        MinTTL: 1
-        Name: gnguyendo-cloudfront-cache-policy
-        ParametersInCacheKeyAndForwardedToOrigin:
-          CookiesConfig:
-            CookieBehavior: all
-          EnableAcceptEncodingGzip: True
-          HeadersConfig:
-            HeaderBehavior: none
-          QueryStringsConfig:
-            QueryStringBehavior: all
-
-  ACMCertificate:
-    Type: AWS::CertificateManager::Certificate
-    Properties:
-      DomainName: geoffreynguyendo.com
-      CertificateTransparencyLoggingPreference: ENABLED
-      DomainValidationOptions:
-        - DomainName: geoffreynguyendo.com
-          HostedZoneId: Z082904935P6WP1NOBKS1
-      ValidationMethod: DNS
-
-  Route53DNSRecordSetGroup:
-    Type: 'AWS::Route53::RecordSetGroup'
-    Properties:
-      HostedZoneId: Z082904935P6WP1NOBKS1
-      RecordSets:
-        - Name: geoffreynguyendo.com
-          Type: A
-          AliasTarget:
-            HostedZoneId: Z2FDTNDATAQYW2
-            DNSName: !GetAtt CloudFrontDistribution.DomainName
-        - Name: www.geoffreynguyendo.com
-          Type: A
-          AliasTarget:
-            HostedZoneId: Z2FDTNDATAQYW2
-            DNSName: !GetAtt CloudFrontDistribution.DomainName
+  # Route53DNSRecordSetGroup:
+  #   Type: 'AWS::Route53::RecordSetGroup'
+  #   Properties:
+  #     HostedZoneId: Z082904935P6WP1NOBKS1
+  #     RecordSets:
+  #       - Name: geoffreynguyendo.com
+  #         Type: A
+  #         AliasTarget:
+  #           HostedZoneId: Z2FDTNDATAQYW2
+  #           DNSName: !GetAtt CloudFrontDistribution.DomainName
+  #       - Name: www.geoffreynguyendo.com
+  #         Type: A
+  #         AliasTarget:
+  #           HostedZoneId: Z2FDTNDATAQYW2
+  #           DNSName: !GetAtt CloudFrontDistribution.DomainName
 
 Outputs:
   WebsiteURL:
