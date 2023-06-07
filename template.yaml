@@ -45,12 +45,12 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Aliases:
-          - geoffreynguyendo.com
-          - www.geoffreynguyendo.com
-        CNAMEs:
-          - geoffreynguyendo.com
-          - www.geoffreynguyendo.com
+        # Aliases:
+        #   - geoffreynguyendo.com
+        #   - www.geoffreynguyendo.com
+        # CNAMEs:
+        #   - geoffreynguyendo.com
+        #   - www.geoffreynguyendo.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
