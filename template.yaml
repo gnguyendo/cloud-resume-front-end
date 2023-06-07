@@ -15,8 +15,8 @@ Resources:
     DeletionPolicy: Retain
     Properties:
       # AccessControl: PublicRead
-      # PublicAccessBlockConfiguration:
-      #   BlockPublicAcls: false
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
       OwnershipControls:
         Rules:
           - ObjectOwnership: BucketOwnerEnforced
@@ -40,7 +40,7 @@ Resources:
               - - 'arn:aws:s3:::'
                 - !Ref S3Bucket
                 - /*
-  #           Principal: '*'
+            Principal: '*'
 
   # CloudFrontDistribution:
   #   Type: AWS::CloudFront::Distribution
