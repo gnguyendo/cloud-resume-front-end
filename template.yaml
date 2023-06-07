@@ -14,27 +14,32 @@ Resources:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
     Properties:
-      AccessControl: PublicRead
+      # AccessControl: PublicRead
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: ObjectWriter
       BucketName: gnguyendo-cloud-resume-website
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
 
-  # BucketPolicy:
-  #   Type: AWS::S3::BucketPolicy
-  #   Properties:
-  #     Bucket: !Ref S3Bucket
-  #     PolicyDocument:
-  #       Version: 2012-10-17
-  #       Statement:
-  #         - Action:
-  #             - 's3:GetObject'
-  #           Effect: Allow
-  #           Resource: !Join
-  #             - ''
-  #             - - 'arn:aws:s3:::'
-  #               - !Ref S3Bucket
-  #               - /*
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref S3Bucket
+                - /*
   #           Principal: '*'
 
   # CloudFrontDistribution:
