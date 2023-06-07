@@ -107,6 +107,7 @@ Resources:
           HostedZoneId: Z0644206IP9MKPD2HGPE
       ValidationMethod: DNS
 
+
   Route53DNSRecordSetGroup:
     Type: 'AWS::Route53::RecordSetGroup'
     Properties:
