@@ -15,11 +15,11 @@ Resources:
     DeletionPolicy: Retain
     Properties:
       # AccessControl: PublicRead
-      PublicAccessBlockConfiguration:
-        BlockPublicAcls: false
+      # PublicAccessBlockConfiguration:
+      #   BlockPublicAcls: false
       OwnershipControls:
         Rules:
-          - ObjectOwnership: ObjectWriter
+          - ObjectOwnership: BucketOwnerEnforced
       BucketName: gnguyendo-cloud-resume-website
       WebsiteConfiguration:
         IndexDocument: index.html
