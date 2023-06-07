@@ -80,10 +80,10 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          # CloudFrontDefaultCertificate: True # used for no CNAME
-          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/77491dbe-f6e3-47f2-8c6b-331c73a4bdba"
-          MinimumProtocolVersion: TLSv1.2_2021
-          SslSupportMethod: sni-only
+          CloudFrontDefaultCertificate: True # used for no CNAME
+          # AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/77491dbe-f6e3-47f2-8c6b-331c73a4bdba"
+          # MinimumProtocolVersion: TLSv1.2_2021
+          # SslSupportMethod: sni-only
 
   CloudFrontCachePolicy:
     Type: AWS::CloudFront::CachePolicy
