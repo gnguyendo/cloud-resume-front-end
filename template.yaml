@@ -45,12 +45,12 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        # Aliases:
-        #   - geoffreynguyendo.com
-        #   - www.geoffreynguyendo.com
-        # CNAMEs:
-        #   - geoffreynguyendo.com
-        #   - www.geoffreynguyendo.com
+        Aliases:
+          - geoffreynguyendo.com
+          - www.geoffreynguyendo.com
+        CNAMEs:
+          - geoffreynguyendo.com
+          - www.geoffreynguyendo.com
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
@@ -82,10 +82,10 @@ Resources:
               - '.s3-website-us-east-1.amazonaws.com'
             Id: gnguyendoS3origin # A unique identifier for the origin. This value must be unique within the distribution.
         ViewerCertificate:
-          CloudFrontDefaultCertificate: True # used for no CNAME
-          # AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/8e50058a-7b3f-4454-ad19-785bdc2af5e0"
-          # MinimumProtocolVersion: TLSv1.2_2021
-          # SslSupportMethod: sni-only
+          # CloudFrontDefaultCertificate: True # used for no CNAME
+          AcmCertificateArn: "arn:aws:acm:us-east-1:976309919253:certificate/6f05949c-7b65-461e-9c53-a907f5800cbe"
+          MinimumProtocolVersion: TLSv1.2_2021
+          SslSupportMethod: sni-only
 
   CloudFrontCachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -104,17 +104,17 @@ Resources:
           QueryStringsConfig:
             QueryStringBehavior: all
 
-  # ACMCertificate:
-  #   Type: AWS::CertificateManager::Certificate
-  #   Properties:
-  #     DomainName: geoffreynguyendo.com
-  #     CertificateTransparencyLoggingPreference: ENABLED
-  #     DomainValidationOptions:
-  #       - DomainName: geoffreynguyendo.com
-  #         HostedZoneId: Z082904935P6WP1NOBKS1
-  #     SubjectAlternativeNames: 
-  #       - www.geoffreynguyendo.com
-  #     ValidationMethod: DNS
+  ACMCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: geoffreynguyendo.com
+      CertificateTransparencyLoggingPreference: ENABLED
+      DomainValidationOptions:
+        - DomainName: geoffreynguyendo.com
+          HostedZoneId: Z082904935P6WP1NOBKS1
+      SubjectAlternativeNames: 
+        - www.geoffreynguyendo.com
+      ValidationMethod: DNS
 
   Route53DNSRecordSetGroup:
     Type: 'AWS::Route53::RecordSetGroup'
