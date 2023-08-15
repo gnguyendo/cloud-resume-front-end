@@ -23,6 +23,15 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+    
+  SubDomainS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Sub "www.${S3Bucket}"
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: !Ref S3Bucket
+          Protocal: http
 
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
